@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Build and Deploy Website
 on:
   push:
     branches:
@@ -12,6 +12,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Login DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
+
+      - name: Build Image
+        run: docker build -t USERNAME/joppien-site:latest .
+
+      - name: Push Image
+        run: docker push USERNAME/joppien-site:latest
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v1
         with:
@@ -19,5 +31,5 @@ jobs:
           username: root
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /var/www/joppien.dev
-            git pull
+            docker pull USERNAME/joppien-site:latest
+            docker compose -f /opt/website/docker-compose.yml up -d
