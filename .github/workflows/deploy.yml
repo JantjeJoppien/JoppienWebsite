@@ -1,4 +1,5 @@
-name: Build and Deploy Website
+name: Deploy Website
+
 on:
   push:
     branches:
@@ -9,27 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Login DockerHub
-        uses: docker/login-action@v3
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_KEY }}
 
-      - name: Build Image
-        run: docker build -t USERNAME/joppien-site:latest .
-
-      - name: Push Image
-        run: docker push USERNAME/joppien-site:latest
-
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SERVER_IP_ADDRESS }}
-          username: root
-          key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker pull USERNAME/joppien-site:latest
-            docker compose -f /opt/website/docker-compose.yml up -d
+            cd /var/www
+
+            echo "📥 Pull latest code"
+            git pull
+
+            echo "🐳 Rebuild containers"
+            docker compose up -d --build
+
+            echo "🧹 Cleanup"
+            docker image prune -f
