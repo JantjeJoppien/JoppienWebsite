@@ -11,7 +11,7 @@ interface Theme {
 
 export default function Contact({ theme }: { theme: Theme }) {
   return (
-    <section id="contact" style={{
+    <section id="contact" className="site-section" style={{
       padding: '96px 48px',
       borderTop: '1px solid ' + theme.border,
     }}>
@@ -34,7 +34,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         Ich freue mich über jede Nachricht und antworte zeitnah.
       </p>
 
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 80 }}>
+      <div className="contact-actions" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 80 }}>
         <a href="mailto:maximilian@joppien.dev" style={{
           padding: '14px 32px',
           backgroundColor: theme.accent,
@@ -65,7 +65,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         </a>
       </div>
 
-      <div style={{
+      <div className="contact-footer" style={{
         paddingTop: 32,
         borderTop: '1px solid ' + theme.border,
         display: 'flex',

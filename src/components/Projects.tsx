@@ -32,7 +32,7 @@ const projects = [
 
 export default function Projects({ theme }: { theme: Theme }) {
   return (
-    <section id="projects" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
+    <section id="projects" className="site-section" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
       <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Was ich so gebaut habe
       </p>
@@ -49,7 +49,7 @@ export default function Projects({ theme }: { theme: Theme }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {projects.map((project) => (
-          <ReactiveBorder key={project.title} glowColor={theme.accent} style={{
+          <ReactiveBorder key={project.title} className="project-card" glowColor={theme.accent} style={{
             backgroundColor: theme.surface,
             border: '1px solid ' + theme.border,
             borderRadius: 12,

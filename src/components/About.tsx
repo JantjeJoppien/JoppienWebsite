@@ -13,7 +13,7 @@ import ReactiveBorder from "./ReactiveBorder.tsx";
 
 export default function About({ theme }: { theme: Theme }) {
   return (
-    <section id="about" style={{
+    <section id="about" className="site-section about-grid" style={{
       padding: '96px 48px',
       borderTop: '1px solid ' + theme.border,
       display: 'grid',
@@ -52,7 +52,7 @@ export default function About({ theme }: { theme: Theme }) {
         </div>
       </div>
 
-      <ReactiveBorder glowColor={theme.accent} style={{
+      <ReactiveBorder className="about-card" glowColor={theme.accent} style={{
         backgroundColor: theme.surface,
         border: '1px solid ' + theme.border,
         borderRadius: 12,
@@ -67,7 +67,7 @@ export default function About({ theme }: { theme: Theme }) {
           { emoji: '💬', key: 'Sprachen', value: 'Deutsch, Englisch' },
           { emoji: '⏰', key: 'Antwortzeit', value: 'Innerhalb von 24 Stunden' },
         ].map((row, i) => (
-          <div key={row.key} style={{
+          <div key={row.key} className="about-card__row" style={{
             display: 'flex',
             alignItems: 'center',
             gap: 14,

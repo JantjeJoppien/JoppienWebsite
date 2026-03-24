@@ -33,7 +33,7 @@ const interests = [
 
 export default function Interests({ theme }: { theme: Theme }) {
   return (
-    <section id="interests" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
+    <section id="interests" className="site-section" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
       <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Was mich begeistert
       </p>
@@ -48,7 +48,7 @@ export default function Interests({ theme }: { theme: Theme }) {
         Interessen
       </h2>
 
-      <div style={{
+      <div className="interests-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 24,

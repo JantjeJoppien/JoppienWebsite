@@ -23,7 +23,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
   ]
 
   return (
-    <nav aria-label="Hauptnavigation" style={{
+    <nav className="site-navbar" aria-label="Hauptnavigation" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '18px 48px',
@@ -36,7 +36,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
         Joppien<span style={{ color: theme.accent }}>.</span>
       </a>
 
-      <ul style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
+      <ul className="site-navbar__links" style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
         {links.map((link) => (
           <li key={link.label}>
             <a href={link.href} style={{ fontSize: 13, color: theme.muted }}>

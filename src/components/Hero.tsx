@@ -13,7 +13,7 @@ import GlitchText from "./GlitchText.tsx";
 
 export default function Hero({ theme }: { theme: Theme }) {
   return (
-    <section style={{
+    <section className="hero-section" style={{
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
@@ -39,7 +39,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         Projekte und was mich antreibt.
       </p>
 
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+      <div className="hero-actions" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
         <a href="#about" style={{
           padding: '13px 30px',
           backgroundColor: theme.accent,
@@ -61,7 +61,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         </a>
       </div>
 
-      <div style={{
+      <div className="hero-tags" style={{
         marginTop: 80,
         display: 'flex',
         gap: 40,

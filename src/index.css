@@ -18,6 +18,10 @@ body {
   background: #f5f8fb;
 }
 
+main {
+  width: 100%;
+}
+
 .glitch-text {
   position: relative;
   display: inline-block;
@@ -215,4 +219,121 @@ button:focus-visible {
 ::selection {
   background: rgba(215, 38, 61, 0.25);
   color: #1f2230;
+}
+
+@media (max-width: 960px) {
+  .site-navbar {
+    padding: 16px 24px !important;
+    gap: 16px;
+    align-items: flex-start !important;
+  }
+
+  .site-navbar__links {
+    gap: 18px !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .site-section,
+  .hero-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 140px !important;
+  }
+
+  .hero-tags {
+    gap: 24px !important;
+    flex-wrap: wrap;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .about-card {
+    margin-top: 0 !important;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card {
+    flex-direction: column;
+    padding: 24px !important;
+  }
+
+  .contact-footer {
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-navbar {
+    padding: 14px 16px !important;
+    flex-direction: column;
+  }
+
+  .site-navbar__links {
+    width: 100%;
+    gap: 14px !important;
+    justify-content: flex-start;
+  }
+
+  .site-section,
+  .hero-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero-section {
+    padding-top: 128px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions a {
+    text-align: center;
+  }
+
+  .hero-tags {
+    gap: 18px !important;
+    justify-content: space-between;
+  }
+
+  .about-card {
+    padding: 24px !important;
+  }
+
+  .about-card__row {
+    align-items: flex-start !important;
+    flex-direction: column;
+    gap: 6px !important;
+  }
+
+  .project-card {
+    gap: 16px !important;
+    padding: 20px !important;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-actions a {
+    justify-content: center;
+    text-align: center;
+  }
 }
