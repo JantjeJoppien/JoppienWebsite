@@ -11,6 +11,7 @@ dist-ssr/
 .env.*.local
 
 # logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -18,8 +19,12 @@ pnpm-debug.log*
 
 # editor / system files
 .DS_Store
+Thumbs.db
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
 # typescript cache
 *.tsbuildinfo
@@ -29,3 +34,17 @@ coverage/
 
 # Vite cache
 .vite/
+
+# package manager caches
+.npm/
+.pnpm-store/
+.yarn/
+
+# tool caches
+.cache/
+.parcel-cache/
+.eslintcache
+
+# local temp files
+tmp/
+temp/
