@@ -40,7 +40,7 @@ export default function Hero({ theme }: { theme: Theme }) {
       </p>
 
       <div className="hero-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-        <a href="#about" style={{
+        <a href="#about" className="button-link button-link--primary" style={{
           padding: '13px 30px',
           backgroundColor: theme.accent,
           color: '#fff',
@@ -50,7 +50,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         }}>
           Mehr erfahren
         </a>
-        <a href="#contact" style={{
+        <a href="#contact" className="button-link button-link--secondary" style={{
           padding: '13px 30px',
           border: '1px solid ' + theme.border,
           color: theme.muted,

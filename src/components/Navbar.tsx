@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Theme {
   dark: boolean
@@ -18,6 +18,17 @@ interface Props {
 
 export default function Navbar({ theme, toggleDark }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   const links = [
     { label: 'Über mich', href: '#about' },

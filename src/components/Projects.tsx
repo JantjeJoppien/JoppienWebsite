@@ -15,16 +15,16 @@ const projects = [
   {
     emoji: '🧠',
     title: 'QuizBuster',
-    desc: 'Ein Quiz-Spiel mit Fokus auf saubere Struktur, Performance und eine gute User Experience.' +
-        ' Ideal für spannende Wissensduelle.',
+    desc: 'Ein Quiz-Spiel für schnelle Wissensduelle. Ich habe an der React- und TypeScript-Frontend-Struktur gearbeitet' +
+        ' und die FastAPI-Anbindung so aufgebaut, dass Spielablauf und Performance sauber zusammenpassen.',
     tags: ['React', 'FastAPI', 'TypeScript'],
     repo: 'https://github.com/mvxsvchs/QuizBuster',
   },
   {
     emoji: '🎯',
     title: 'Lumaka - StickerQuest',
-    desc: 'Ein spielerisches System rund um Sticker und Sammlungen. Entwickelt, ' +
-        'um Motivation und Fortschritt visuell greifbar zu machen.',
+    desc: 'Ein mobiles Sammel- und Fortschrittssystem rund um Sticker. Der Fokus lag auf einer klaren Kotlin-Android-Umsetzung,' +
+        ' die Motivation, Fortschritt und Gamification direkt im Interface sichtbar macht.',
     tags: ['Kotlin', 'Android', 'Mobile', 'Gamification'],
     repo: 'https://github.com/mvxsvchs/LumakaStickerQuest',
   }
@@ -80,16 +80,18 @@ export default function Projects({ theme }: { theme: Theme }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${project.title} auf GitHub öffnen`}
+                className="project-link"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
+                  gap: 8,
                   marginTop: 18,
                   color: theme.accent,
                   fontSize: 15,
                   fontWeight: 700,
                 }}
               >
-                GitHub ansehen
+                GitHub ansehen <span aria-hidden="true">→</span>
               </a>
             </div>
           </ReactiveBorder>

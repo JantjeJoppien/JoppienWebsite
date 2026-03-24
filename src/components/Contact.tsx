@@ -35,7 +35,7 @@ export default function Contact({ theme }: { theme: Theme }) {
       </p>
 
       <div className="contact-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 80 }}>
-        <a href="mailto:maximilian@joppien.dev" style={{
+        <a href="mailto:maximilian@joppien.dev" className="button-link button-link--primary" style={{
           padding: '14px 32px',
           backgroundColor: theme.accent,
           color: '#fff',
@@ -45,7 +45,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         }}>
           ✉️ E-Mail schreiben
         </a>
-        <a href="https://github.com/mvxsvchs" target="_blank" rel="noreferrer" aria-label="GitHub-Profil von Maximilian Joppien in neuem Tab öffnen" style={{
+        <a href="https://github.com/mvxsvchs" target="_blank" rel="noreferrer" aria-label="GitHub-Profil von Maximilian Joppien in neuem Tab öffnen" className="button-link button-link--secondary" style={{
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,
@@ -54,7 +54,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         }}>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/maximilian-joppien-5b784b287/" target="_blank" rel="noreferrer" aria-label="LinkedIn-Profil von Maximilian Joppien in neuem Tab öffnen" style={{
+        <a href="https://www.linkedin.com/in/maximilian-joppien-5b784b287/" target="_blank" rel="noreferrer" aria-label="LinkedIn-Profil von Maximilian Joppien in neuem Tab öffnen" className="button-link button-link--secondary" style={{
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,

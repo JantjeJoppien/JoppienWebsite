@@ -26,6 +26,10 @@ main {
   display: none;
 }
 
+.site-navbar a:hover {
+  color: inherit;
+}
+
 .reveal-up {
   opacity: 0;
   transform: translate3d(0, 28px, 0) scale(0.985);
@@ -222,6 +226,7 @@ main {
   position: relative;
   z-index: 1;
   border-radius: inherit;
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .reactive-border__glow,
@@ -281,6 +286,11 @@ main {
   opacity: 1;
 }
 
+.reactive-border:hover .reactive-border__content,
+.reactive-border:focus-within .reactive-border__content {
+  transform: translateY(-3px);
+}
+
 .skip-link {
   position: absolute;
   left: 16px;
@@ -304,6 +314,45 @@ a {
 
 button {
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.button-link {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button-link:hover {
+  transform: translateY(-2px);
+}
+
+.button-link--primary:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.button-link--secondary:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.project-link {
+  transition: gap 180ms ease, transform 180ms ease, opacity 180ms ease;
+}
+
+.project-link:hover {
+  gap: 12px;
+  transform: translateX(2px);
+}
+
+.site-navbar__links a {
+  border-radius: 12px;
+  padding: 6px 10px;
+}
+
+.site-navbar__links a:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 a:focus-visible,
