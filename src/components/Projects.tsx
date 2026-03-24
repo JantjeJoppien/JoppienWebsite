@@ -9,6 +9,8 @@ interface Theme {
   accentLight: string
 }
 
+import ReactiveBorder from "./ReactiveBorder.tsx";
+
 const projects = [
   {
     emoji: '🧠',
@@ -45,7 +47,7 @@ export default function Projects({ theme }: { theme: Theme }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {projects.map((project) => (
-          <div key={project.title} style={{
+          <ReactiveBorder key={project.title} glowColor={theme.accent} style={{
             backgroundColor: theme.surface,
             border: '1px solid ' + theme.border,
             borderRadius: 12,
@@ -72,7 +74,7 @@ export default function Projects({ theme }: { theme: Theme }) {
                 ))}
               </div>
             </div>
-          </div>
+          </ReactiveBorder>
         ))}
       </div>
     </section>

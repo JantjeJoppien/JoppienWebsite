@@ -23,7 +23,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
   ]
 
   return (
-    <nav style={{
+    <nav aria-label="Hauptnavigation" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '18px 48px',
@@ -32,7 +32,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
       backdropFilter: 'blur(12px)',
       transition: 'background 0.3s',
     }}>
-      <a href="#" style={{ fontWeight: 800, fontSize: 20, color: theme.text }}>
+      <a href="#" aria-label="Zur Startseite" style={{ fontWeight: 800, fontSize: 20, color: theme.text }}>
         Joppien<span style={{ color: theme.accent }}>.</span>
       </a>
 
@@ -47,6 +47,9 @@ export default function Navbar({ theme, toggleDark }: Props) {
         <li>
           <button
             onClick={toggleDark}
+            type="button"
+            aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
+            title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
             style={{
               background: theme.surface,
               border: '1px solid ' + theme.border,

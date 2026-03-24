@@ -18,6 +18,95 @@ body {
   background: #f5f8fb;
 }
 
+.reactive-border {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-color: rgba(215, 38, 61, 0.75);
+  --glow-alpha: 0;
+}
+
+.reactive-border__content {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.reactive-border__glow,
+.reactive-border__halo {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.reactive-border__glow {
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background:
+    radial-gradient(
+      150px circle at var(--glow-x) var(--glow-y),
+      color-mix(in srgb, var(--glow-color) calc(var(--glow-alpha) * 100%), transparent),
+      transparent 62%
+    );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.reactive-border__halo {
+  inset: -10px;
+  border-radius: inherit;
+  padding: 10px;
+  background:
+    radial-gradient(
+      180px circle at var(--glow-x) var(--glow-y),
+      color-mix(in srgb, var(--glow-color) calc(var(--glow-alpha) * 65%), transparent),
+      transparent 66%
+    );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.reactive-border[data-edge-active='true'] .reactive-border__glow,
+.reactive-border[data-edge-active='true'] .reactive-border__halo,
+.reactive-border:focus-within .reactive-border__glow,
+.reactive-border:focus-within .reactive-border__halo {
+  opacity: 1;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #D7263D;
+  color: #fff;
+  font-weight: 700;
+}
+
+.skip-link:focus-visible {
+  top: 16px;
+}
+
 a {
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -25,6 +114,12 @@ a {
 
 button {
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #D7263D;
+  outline-offset: 4px;
 }
 
 ::selection {

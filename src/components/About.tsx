@@ -9,6 +9,8 @@ interface Theme {
   accentLight: string
 }
 
+import ReactiveBorder from "./ReactiveBorder.tsx";
+
 export default function About({ theme }: { theme: Theme }) {
   return (
     <section id="about" style={{
@@ -50,7 +52,7 @@ export default function About({ theme }: { theme: Theme }) {
         </div>
       </div>
 
-      <div style={{
+      <ReactiveBorder glowColor={theme.accent} style={{
         backgroundColor: theme.surface,
         border: '1px solid ' + theme.border,
         borderRadius: 12,
@@ -78,7 +80,7 @@ export default function About({ theme }: { theme: Theme }) {
             <span style={{ color: theme.text }}>{row.value}</span>
           </div>
         ))}
-      </div>
+      </ReactiveBorder>
     </section>
   )
 }

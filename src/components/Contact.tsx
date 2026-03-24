@@ -45,7 +45,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         }}>
           ✉️ E-Mail schreiben
         </a>
-        <a href="https://github.com/mvxsvchs" style={{
+        <a href="https://github.com/mvxsvchs" target="_blank" rel="noreferrer" aria-label="GitHub-Profil von Maximilian Joppien in neuem Tab öffnen" style={{
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,
@@ -54,7 +54,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         }}>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/maximilian-joppien-5b784b287/" style={{
+        <a href="https://www.linkedin.com/in/maximilian-joppien-5b784b287/" target="_blank" rel="noreferrer" aria-label="LinkedIn-Profil von Maximilian Joppien in neuem Tab öffnen" style={{
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,

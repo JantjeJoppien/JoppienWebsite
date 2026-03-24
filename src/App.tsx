@@ -33,12 +33,15 @@ export default function App() {
         transition: 'background 0.3s, color 0.3s',
       }}
     >
+      <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
       <Navbar theme={theme} toggleDark={() => setDark(!dark)} />
-      <Hero theme={theme} />
-      <About theme={theme} />
-      <Interests theme={theme} />
-      <Projects theme={theme} />
-      <Contact theme={theme} />
+      <main id="main-content">
+        <Hero theme={theme} />
+        <About theme={theme} />
+        <Interests theme={theme} />
+        <Projects theme={theme} />
+        <Contact theme={theme} />
+      </main>
     </div>
   )
 }
