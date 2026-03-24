@@ -192,7 +192,7 @@ export default function HomeLanding({
               Luna, Odin und Happy gehören natürlich dazu.
             </h2>
             <p style={{ color: theme.muted, fontSize: 18, lineHeight: 1.85, marginTop: 22 }}>
-              Drei Hunde, drei Charaktere und ziemlich sicher die wahren Hauptfiguren im Alltag. Auch sie bekommen hier ihren kleinen Platz auf der Startseite.
+              Drei Hunde, drei völlig eigene Charaktere und ein fester Teil ihres gemeinsamen Alltags. Deshalb bekommen Luna, Odin und Happy hier ganz bewusst ihren eigenen Platz.
             </p>
           </div>
 
