@@ -54,8 +54,8 @@ export default function JantjeHero({ theme, navigateToSection }: { theme: Theme,
           maxWidth: 560,
           margin: '28px 0 48px',
         }}>
-          Diese Portfolio-Seite ist jetzt Teil der React-App und vorbereitet fuer den
-          naechsten Ausbauschritt. Struktur, Routing und Platzhalter-Sektionen stehen bereits.
+          Diese Portfolio-Seite ist jetzt Teil der React-App und vorbereitet für den
+          nächsten Ausbauschritt. Struktur, Routing und Platzhalter-Sektionen stehen bereits.
         </p>
 
         <div className="hero-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
@@ -94,7 +94,7 @@ export default function JantjeHero({ theme, navigateToSection }: { theme: Theme,
           </p>
           <h2 style={{ margin: '14px 0 0', fontSize: 34 }}>Jantje</h2>
           <p style={{ color: theme.muted, fontSize: 16, lineHeight: 1.8, marginTop: 16 }}>
-            Platzhalter-Inhalte heute, echte Portfolio-Seite als naechster Schritt.
+            Platzhalter-Inhalte heute, echte Portfolio-Seite als nächster Schritt.
           </p>
         </div>
       </div>

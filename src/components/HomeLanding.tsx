@@ -40,9 +40,9 @@ export default function HomeLanding({
   }
 
   const dogs = [
-    { name: 'Luna', image: lunaImage, text: 'Luna bringt Ruhe, Neugier und ihren ganz eigenen Blick auf jede Alltagsszene mit.' },
-    { name: 'Odin', image: odinImage, text: 'Odin wirkt wie der aufmerksame Beobachter der Truppe und ist immer voll dabei.' },
-    { name: 'Happy', image: happyImage, text: 'Happy macht seinem Namen alle Ehre und sorgt fuer die extra Portion Energie im Rudel.' },
+    { name: 'Luna', image: lunaImage, text: 'Luna kann manchmal ganz schön nervig sein, aber genau das gehört zu ihr. Mit ihrer liebenswerten Art schafft sie es trotzdem immer wieder, alle für sich zu gewinnen.' },
+    { name: 'Odin', image: odinImage, text: 'Odin ist der Ruhepol der Bande. Er wirkt gelassen, aufmerksam und beschützend, als hätte er immer ein Auge darauf, dass alles in Ordnung ist.' },
+    { name: 'Happy', image: happyImage, text: 'Happy ist eigentlich immer gut drauf und bereit für Action. Hauptsache dabei sein, etwas erleben und mit voller Energie durchs Leben gehen.' },
   ]
 
   return (
@@ -116,7 +116,7 @@ export default function HomeLanding({
             </h1>
             <p style={{ maxWidth: 640, fontSize: 19, lineHeight: 1.85, color: theme.muted, marginTop: 28 }}>
               Jantje und Maximilian teilen sich nicht nur den Namen Joppien, sondern auch dieses Zuhause im Web.
-              Von hier aus geht es weiter zu ihren persoenlichen Portfolios, Projekten und Geschichten.
+              Von hier aus geht es weiter zu ihren persönlichen Portfolios, Projekten und Geschichten.
             </p>
           </div>
 
@@ -134,7 +134,7 @@ export default function HomeLanding({
               alt="Jantje und Maximilian zusammen"
             />
             <p style={{ margin: '18px 0 0', color: theme.muted, lineHeight: 1.75 }}>
-              Ein gemeinsamer Moment als Einstieg: persoenlich, nahbar und direkt mit der Startseite verbunden.
+              Ein gemeinsamer Moment als Einstieg: persönlich, nahbar und direkt mit der Startseite verbunden.
             </p>
           </aside>
         </section>
@@ -144,7 +144,7 @@ export default function HomeLanding({
             {
               key: 'jantje' as const,
               title: 'Jantje',
-              description: 'Ein eigener Bereich fuer persoenliche Stationen, Projekte, Interessen und alles, was Jantje ausmacht.',
+              description: 'Ein eigener Bereich für persönliche Stationen, Projekte, Interessen und alles, was Jantje ausmacht.',
             },
             {
               key: 'maximilian' as const,
@@ -189,7 +189,7 @@ export default function HomeLanding({
               Family Crew
             </p>
             <h2 style={{ margin: 0, fontSize: 'clamp(34px, 5vw, 58px)', lineHeight: 1, letterSpacing: '-0.04em', color: theme.text }}>
-              Luna, Odin und Happy gehoeren natuerlich dazu.
+              Luna, Odin und Happy gehören natürlich dazu.
             </h2>
             <p style={{ color: theme.muted, fontSize: 18, lineHeight: 1.85, marginTop: 22 }}>
               Drei Hunde, drei Charaktere und ziemlich sicher die wahren Hauptfiguren im Alltag. Auch sie bekommen hier ihren kleinen Platz auf der Startseite.

@@ -16,7 +16,7 @@ export default function JantjeProjects({ theme }: { theme: Theme }) {
       <div style={{ padding: 30, borderRadius: 22, border: '1px solid ' + theme.border, background: theme.surface }}>
         <h2 style={{ marginTop: 0, color: theme.text }}>Projektbereich in Vorbereitung</h2>
         <p style={{ color: theme.muted, lineHeight: 1.9, marginBottom: 0 }}>
-          Hier koennen spaeter Projekte, Referenzen oder Arbeitsproben von Jantje eingebunden werden.
+          Hier können später Projekte, Referenzen oder Arbeitsproben von Jantje eingebunden werden.
         </p>
       </div>
     </section>
