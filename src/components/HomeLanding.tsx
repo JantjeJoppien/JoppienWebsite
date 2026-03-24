@@ -1,0 +1,147 @@
+import { type PortfolioSlug } from "../siteRouting.ts";
+
+interface Theme {
+  dark: boolean
+  bg: string
+  surface: string
+  border: string
+  text: string
+  muted: string
+  accent: string
+  accentLight: string
+}
+
+export default function HomeLanding({
+  theme,
+  navigateToPortfolio,
+}: {
+  theme: Theme
+  navigateToPortfolio: (portfolio: PortfolioSlug) => void
+}) {
+  function handlePortfolioClick(event: React.MouseEvent<HTMLAnchorElement>, portfolio: PortfolioSlug) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return
+    }
+
+    event.preventDefault()
+    navigateToPortfolio(portfolio)
+  }
+
+  return (
+    <div style={{ minHeight: '100vh' }}>
+      <header style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 30,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 20,
+        padding: '20px 32px',
+        borderBottom: '1px solid ' + theme.border,
+        backgroundColor: theme.bg + 'dd',
+        backdropFilter: 'blur(12px)',
+      }}>
+        <a href="/" style={{ fontWeight: 800, fontSize: 22, color: theme.text }}>
+          Joppien<span style={{ color: theme.accent }}>.</span>
+        </a>
+        <nav style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <a
+            href="/jantje/"
+            onClick={(event) => handlePortfolioClick(event, 'jantje')}
+            style={{
+              padding: '10px 16px',
+              border: '1px solid ' + theme.border,
+              borderRadius: 999,
+              color: theme.text,
+            }}
+          >
+            Jantje
+          </a>
+          <a
+            href="/maximilian/"
+            onClick={(event) => handlePortfolioClick(event, 'maximilian')}
+            style={{
+              padding: '10px 16px',
+              border: '1px solid ' + theme.border,
+              borderRadius: 999,
+              color: theme.text,
+            }}
+          >
+            Maximilian
+          </a>
+        </nav>
+      </header>
+
+      <main style={{ padding: '72px 24px 96px' }}>
+        <section style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 18 }}>
+            joppien.dev
+          </p>
+          <h1 style={{ fontSize: 'clamp(46px, 9vw, 92px)', lineHeight: 0.95, margin: 0, letterSpacing: '-0.05em' }}>
+            Zwei Portfolios, eine gemeinsame Startseite.
+          </h1>
+          <p style={{ maxWidth: 680, fontSize: 19, lineHeight: 1.85, color: theme.muted, marginTop: 28 }}>
+            Jantje und Maximilian Joppien haben hier ihren gemeinsamen Einstiegspunkt.
+            Von hier aus gelangt ihr direkt zu den jeweiligen Portfolio-Seiten.
+          </p>
+        </section>
+
+        <section style={{
+          maxWidth: 1100,
+          margin: '56px auto 0',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 24,
+        }}>
+          {[
+            {
+              key: 'jantje' as const,
+              title: 'Jantje',
+              description: 'Die React-Struktur steht bereits. Inhalte und Projekte koennen jetzt schrittweise ausgebaut werden.',
+            },
+            {
+              key: 'maximilian' as const,
+              title: 'Maximilian',
+              description: 'Das bestehende Portfolio mit Hero, About, Interessen, Projekten und Kontakt lebt unter seinem eigenen Bereich.',
+            },
+          ].map((entry) => (
+            <article
+              key={entry.key}
+              style={{
+                padding: 30,
+                borderRadius: 28,
+                border: '1px solid ' + theme.border,
+                background: theme.surface,
+                boxShadow: theme.dark ? '0 24px 60px rgba(0, 0, 0, 0.2)' : '0 24px 60px rgba(18, 53, 71, 0.08)',
+              }}
+            >
+              <h2 style={{ margin: 0, fontSize: 34, lineHeight: 1 }}>{entry.title}</h2>
+              <p style={{ color: theme.muted, fontSize: 16, lineHeight: 1.8, margin: '16px 0 28px' }}>{entry.description}</p>
+              <a
+                href={`/${entry.key}/`}
+                onClick={(event) => handlePortfolioClick(event, entry.key)}
+                style={{
+                  display: 'inline-flex',
+                  padding: '13px 22px',
+                  borderRadius: 999,
+                  background: theme.accent,
+                  color: '#fff',
+                  fontWeight: 700,
+                }}
+              >
+                Portfolio ansehen
+              </a>
+            </article>
+          ))}
+        </section>
+      </main>
+    </div>
+  )
+}
