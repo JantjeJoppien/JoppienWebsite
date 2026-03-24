@@ -33,7 +33,7 @@ const projects = [
 export default function Projects({ theme }: { theme: Theme }) {
   return (
     <section id="projects" className="site-section" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
-      <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
+      <p style={{ color: theme.accent, fontSize: 14, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Was ich so gebaut habe
       </p>
       <h2 style={{
@@ -60,12 +60,12 @@ export default function Projects({ theme }: { theme: Theme }) {
           }}>
             <div style={{ fontSize: 36, flexShrink: 0, marginTop: 4 }}>{project.emoji}</div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ color: theme.text, fontWeight: 700, fontSize: 18, marginBottom: 10 }}>{project.title}</h3>
-              <p style={{ color: theme.muted, fontSize: 14, lineHeight: 1.8, marginBottom: 16 }}>{project.desc}</p>
+              <h3 style={{ color: theme.text, fontWeight: 700, fontSize: 19, marginBottom: 10 }}>{project.title}</h3>
+              <p style={{ color: theme.muted, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>{project.desc}</p>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {project.tags.map((tag) => (
                   <span key={tag} style={{
-                    fontSize: 12,
+                    fontSize: 13,
                     color: theme.accent,
                     backgroundColor: theme.accentLight,
                     padding: '4px 12px',
@@ -85,7 +85,7 @@ export default function Projects({ theme }: { theme: Theme }) {
                   alignItems: 'center',
                   marginTop: 18,
                   color: theme.accent,
-                  fontSize: 14,
+                  fontSize: 15,
                   fontWeight: 700,
                 }}
               >

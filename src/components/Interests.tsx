@@ -34,7 +34,7 @@ const interests = [
 export default function Interests({ theme }: { theme: Theme }) {
   return (
     <section id="interests" className="site-section" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
-      <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
+      <p style={{ color: theme.accent, fontSize: 14, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Was mich begeistert
       </p>
       <h2 style={{
@@ -62,8 +62,8 @@ export default function Interests({ theme }: { theme: Theme }) {
             transition: 'background 0.2s',
           }}>
             <div style={{ fontSize: 32, marginBottom: 16 }}>{item.emoji}</div>
-            <h3 style={{ color: theme.text, fontWeight: 700, fontSize: 18, marginBottom: 12 }}>{item.title}</h3>
-            <p style={{ color: theme.muted, fontSize: 14, lineHeight: 1.8 }}>{item.desc}</p>
+            <h3 style={{ color: theme.text, fontWeight: 700, fontSize: 19, marginBottom: 12 }}>{item.title}</h3>
+            <p style={{ color: theme.muted, fontSize: 15, lineHeight: 1.8 }}>{item.desc}</p>
           </ReactiveBorder>
         ))}
       </div>

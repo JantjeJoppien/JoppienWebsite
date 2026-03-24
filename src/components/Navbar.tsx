@@ -39,7 +39,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
       <ul className="site-navbar__links" style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
         {links.map((link) => (
           <li key={link.label}>
-            <a href={link.href} style={{ fontSize: 13, color: theme.muted }}>
+            <a href={link.href} style={{ fontSize: 14, color: theme.muted }}>
               {link.label}
             </a>
           </li>
@@ -57,7 +57,7 @@ export default function Navbar({ theme, toggleDark }: Props) {
               padding: '6px 14px',
               borderRadius: 20,
               cursor: 'pointer',
-              fontSize: 14,
+              fontSize: 15,
               transition: 'background 0.2s',
             }}
           >

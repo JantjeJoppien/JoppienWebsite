@@ -22,7 +22,7 @@ export default function About({ theme }: { theme: Theme }) {
       alignItems: 'start',
     }}>
       <div>
-        <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
+        <p style={{ color: theme.accent, fontSize: 14, letterSpacing: '0.1em', marginBottom: 16 }}>
           — Über mich
         </p>
         <h2 style={{
@@ -35,7 +35,7 @@ export default function About({ theme }: { theme: Theme }) {
         }}>
           Maximilian <br/> Joppien
         </h2>
-        <div style={{ fontSize: 15, lineHeight: 2, color: theme.muted }}>
+        <div style={{ fontSize: 16, lineHeight: 1.9, color: theme.muted }}>
           <p style={{ marginBottom: 20 }}>
             Ich bin Maxi – Entwickler mit einer Vorliebe für alles,
             was schnell ist oder auf dem Bildschirm passiert.
@@ -59,7 +59,7 @@ export default function About({ theme }: { theme: Theme }) {
         padding: 36,
         marginTop: 60,
       }}>
-        <p style={{ color: theme.accent, fontSize: 13, marginBottom: 24 }}>Auf einen Blick</p>
+        <p style={{ color: theme.accent, fontSize: 14, marginBottom: 24 }}>Auf einen Blick</p>
         {[
           { emoji: '📍', key: 'Standort', value: 'Erkelenz, Deutschland' },
           { emoji: '🎓', key: 'Ausbildung', value: 'Anwendungsentwicklung / Kaufmann im Einzelhandel' },
@@ -73,10 +73,10 @@ export default function About({ theme }: { theme: Theme }) {
             gap: 14,
             padding: '14px 0',
             borderBottom: i < 4 ? '1px solid ' + theme.border : 'none',
-            fontSize: 14,
+            fontSize: 15,
           }}>
             <span style={{ fontSize: 18 }}>{row.emoji}</span>
-            <span style={{ color: theme.muted, minWidth: 100, fontSize: 12 }}>{row.key}</span>
+            <span style={{ color: theme.muted, minWidth: 100, fontSize: 13 }}>{row.key}</span>
             <span style={{ color: theme.text }}>{row.value}</span>
           </div>
         ))}

@@ -15,7 +15,7 @@ export default function Contact({ theme }: { theme: Theme }) {
       padding: '96px 48px',
       borderTop: '1px solid ' + theme.border,
     }}>
-      <p style={{ color: theme.accent, fontSize: 13, letterSpacing: '0.1em', marginBottom: 16 }}>
+      <p style={{ color: theme.accent, fontSize: 14, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Meld dich gerne
       </p>
       <h2 style={{
@@ -29,7 +29,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         Kontakt
       </h2>
 
-      <p style={{ fontSize: 16, color: theme.muted, lineHeight: 1.9, maxWidth: 500, marginBottom: 48 }}>
+      <p style={{ fontSize: 17, color: theme.muted, lineHeight: 1.85, maxWidth: 500, marginBottom: 48 }}>
         Ob Jobangebot, Projektidee oder einfach nur ein kurzes Hallo:
         Ich freue mich über jede Nachricht und antworte zeitnah.
       </p>
@@ -40,7 +40,7 @@ export default function Contact({ theme }: { theme: Theme }) {
           backgroundColor: theme.accent,
           color: '#fff',
           fontWeight: 700,
-          fontSize: 14,
+          fontSize: 15,
           borderRadius: 6,
         }}>
           ✉️ E-Mail schreiben
@@ -49,7 +49,7 @@ export default function Contact({ theme }: { theme: Theme }) {
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,
-          fontSize: 14,
+          fontSize: 15,
           borderRadius: 6,
         }}>
           GitHub
@@ -58,7 +58,7 @@ export default function Contact({ theme }: { theme: Theme }) {
           padding: '14px 32px',
           border: '1px solid ' + theme.border,
           color: theme.muted,
-          fontSize: 14,
+          fontSize: 15,
           borderRadius: 6,
         }}>
           LinkedIn
@@ -70,7 +70,7 @@ export default function Contact({ theme }: { theme: Theme }) {
         borderTop: '1px solid ' + theme.border,
         display: 'flex',
         justifyContent: 'space-between',
-        fontSize: 12,
+        fontSize: 13,
         color: theme.muted,
       }}>
         <span>2026 Joppien</span>

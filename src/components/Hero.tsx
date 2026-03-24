@@ -21,15 +21,15 @@ export default function Hero({ theme }: { theme: Theme }) {
       padding: '120px 48px 80px',
       maxWidth: 860,
     }}>
-      <p style={{ color: theme.accent, fontSize: 14, marginBottom: 24, letterSpacing: '0.05em' }}>
+      <p style={{ color: theme.accent, fontSize: 15, marginBottom: 24, letterSpacing: '0.05em' }}>
         Hey, ich bin
       </p>
 
       <GlitchText text="Maxi" color={theme.text} dark={theme.dark} />
 
       <p style={{
-        fontSize: 18,
-        lineHeight: 1.9,
+        fontSize: 19,
+        lineHeight: 1.85,
         color: theme.muted,
         maxWidth: 520,
         marginBottom: 48,
@@ -45,7 +45,7 @@ export default function Hero({ theme }: { theme: Theme }) {
           backgroundColor: theme.accent,
           color: '#fff',
           fontWeight: 700,
-          fontSize: 14,
+          fontSize: 15,
           borderRadius: 4,
         }}>
           Mehr erfahren
@@ -54,7 +54,7 @@ export default function Hero({ theme }: { theme: Theme }) {
           padding: '13px 30px',
           border: '1px solid ' + theme.border,
           color: theme.muted,
-          fontSize: 14,
+          fontSize: 15,
           borderRadius: 4,
         }}>
           Kontakt aufnehmen
@@ -76,7 +76,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         ].map((tag) => (
           <div key={tag.label} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 26, marginBottom: 6 }}>{tag.emoji}</div>
-            <div style={{ fontSize: 11, color: theme.muted, letterSpacing: '0.05em' }}>{tag.label}</div>
+            <div style={{ fontSize: 13, color: theme.muted, letterSpacing: '0.05em' }}>{tag.label}</div>
           </div>
         ))}
       </div>
