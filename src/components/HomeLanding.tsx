@@ -134,7 +134,7 @@ export default function HomeLanding({
               alt="Jantje und Maximilian zusammen"
             />
             <p style={{ margin: '18px 0 0', color: theme.muted, lineHeight: 1.75 }}>
-              Ein gemeinsamer Moment als Einstieg: persönlich, nahbar und direkt mit der Startseite verbunden.
+              Zusammen unterwegs, zusammen im Leben und jetzt auch gemeinsam hier auf joppien.dev zu Hause.
             </p>
           </aside>
         </section>
