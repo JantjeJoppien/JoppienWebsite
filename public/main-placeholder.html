@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>joppien.dev</title>
+    <title>joppien.dev/main</title>
     <style>
       :root {
         color-scheme: dark;
@@ -22,9 +22,6 @@
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
         font-family: Georgia, serif;
         color: var(--text);
         background:
@@ -33,7 +30,57 @@
           linear-gradient(180deg, #072038 0%, var(--bg) 100%);
       }
 
+      .topbar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 32px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(2, 24, 43, 0.78);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      .topbar nav {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .topbar nav a {
+        padding: 10px 16px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .topbar nav a:hover,
+      .topbar nav a.active {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
       main {
+        min-height: calc(100vh - 78px);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .panel {
         width: min(100%, 760px);
         padding: 48px;
         border: 1px solid var(--border);
@@ -66,7 +113,7 @@
         line-height: 1.8;
       }
 
-      a {
+      .cta {
         display: inline-flex;
         align-items: center;
         gap: 10px;
@@ -79,20 +126,29 @@
         font-weight: 700;
       }
 
-      a:hover {
+      .cta:hover {
         filter: brightness(1.06);
       }
     </style>
   </head>
   <body>
+    <header class="topbar">
+      <a class="brand" href="/main">Joppien<span>.</span></a>
+      <nav aria-label="Bereiche">
+        <a href="/jantje">Jantje</a>
+        <a class="active" href="/maximilian/">Maxi</a>
+      </nav>
+    </header>
     <main>
-      <p class="eyebrow">joppien.dev</p>
-      <h1>Mehr Seiten folgen.</h1>
-      <p>
-        Die persönliche Portfolio-Seite von Maximilian Joppien ist bereits live.
-        Weitere Bereiche und Projekte werden hier nach und nach ergänzt.
-      </p>
-      <a href="/maximilian/">Zu Maximilian</a>
+      <section class="panel">
+        <p class="eyebrow">joppien.dev/main</p>
+        <h1>Die Startseite für joppien.dev.</h1>
+        <p>
+          Von hier aus gehen die einzelnen Bereiche der Seite weiter. Maximilians
+          Portfolio ist bereits live, weitere Seiten wie Jantje folgen als Nächstes.
+        </p>
+        <a class="cta" href="/maximilian/">Zu Maxi</a>
+      </section>
     </main>
   </body>
   </html>

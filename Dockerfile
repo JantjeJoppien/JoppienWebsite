@@ -11,7 +11,8 @@ FROM nginx:1.27-alpine
 LABEL authors="jantje"
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/public/root-placeholder.html /usr/share/nginx/html/index.html
+COPY --from=build /app/public/main-placeholder.html /usr/share/nginx/html/main.html
+COPY --from=build /app/public/jantje-placeholder.html /usr/share/nginx/html/jantje.html
 COPY --from=build /app/dist /usr/share/nginx/html/maximilian
 
 EXPOSE 80
