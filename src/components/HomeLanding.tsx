@@ -150,14 +150,14 @@ export default function HomeLanding({
                 background: theme.dark ? 'rgba(11, 37, 61, 0.68)' : 'rgba(255, 255, 255, 0.8)',
               }}
             >
-              <p style={{ color: theme.accent, fontSize: 12, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>
-                Seit dem 05.05.2025
+              <p style={{ color: theme.accent, fontSize: 14, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>
+                05.05.2025
               </p>
               <div className="home-landing__countup-number" style={{ marginTop: 12 }}>
                 <CountUpNumber />
               </div>
               <p style={{ margin: '10px 0 0', color: theme.muted, fontSize: 15, lineHeight: 1.7 }}>
-                Tage verheiratet und jeden Tag kommt einer dazu.
+                Tage verheiratet und immer noch absolute glücklich
               </p>
             </div>
           </aside>
