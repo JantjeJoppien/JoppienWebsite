@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Navbar from "./components/Navbar.tsx";
 import Hero from "./components/Hero.tsx";
@@ -6,9 +6,11 @@ import About from "./components/About.tsx";
 import Interests from "./components/Interests.tsx";
 import Projects from "./components/Projects.tsx";
 import Contact from "./components/Contact.tsx";
+import { getSectionFromPath, getSectionPath, type SectionKey } from "./siteRouting.ts";
 
 export default function App() {
   const [dark, setDark] = useState(true)
+  const initialRoute = useRef(getSectionFromPath(window.location.pathname))
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -39,6 +41,53 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const targetSection = initialRoute.current
+
+    const scrollToSection = () => {
+      if (targetSection === 'home') {
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        return
+      }
+
+      document.getElementById(targetSection)?.scrollIntoView({ behavior: 'auto', block: 'start' })
+    }
+
+    const frame = window.requestAnimationFrame(scrollToSection)
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const section = getSectionFromPath(window.location.pathname)
+
+      if (section === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  function navigateToSection(section: SectionKey) {
+    const nextPath = getSectionPath(section)
+
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({}, '', nextPath)
+    }
+
+    if (section === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   const theme = {
     dark,
     bg: dark ? '#02182B' : '#EAEBED',
@@ -63,9 +112,9 @@ export default function App() {
       }}
     >
       <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-      <Navbar theme={theme} toggleDark={() => setDark(!dark)} />
+      <Navbar theme={theme} toggleDark={() => setDark(!dark)} navigateToSection={navigateToSection} />
       <main id="main-content">
-        <Hero theme={theme} />
+        <Hero theme={theme} navigateToSection={navigateToSection} />
         <About theme={theme} />
         <Interests theme={theme} />
         <Projects theme={theme} />

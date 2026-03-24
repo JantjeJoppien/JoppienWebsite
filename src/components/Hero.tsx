@@ -12,8 +12,24 @@ interface Theme {
 import GlitchText from "./GlitchText.tsx";
 import maximilianImage from "../assets/Maximilian.PNG";
 import ProfileCard from "./ProfileCard.tsx";
+import { getSectionPath, type SectionKey } from "../siteRouting.ts";
 
-export default function Hero({ theme }: { theme: Theme }) {
+export default function Hero({ theme, navigateToSection }: { theme: Theme, navigateToSection: (section: SectionKey) => void }) {
+  function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return
+    }
+
+    event.preventDefault()
+    navigateToSection(section)
+  }
+
   return (
     <section className="hero-section reveal-up is-visible" data-reveal style={{
       minHeight: '100vh',
@@ -45,7 +61,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         </p>
 
         <div className="hero-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <a href="#about" className="button-link button-link--primary" style={{
+          <a href={getSectionPath('about')} onClick={(event) => handleSectionClick(event, 'about')} className="button-link button-link--primary" style={{
             padding: '13px 30px',
             backgroundColor: theme.accent,
             color: '#fff',
@@ -55,7 +71,7 @@ export default function Hero({ theme }: { theme: Theme }) {
           }}>
             Mehr erfahren
           </a>
-          <a href="#contact" className="button-link button-link--secondary" style={{
+          <a href={getSectionPath('contact')} onClick={(event) => handleSectionClick(event, 'contact')} className="button-link button-link--secondary" style={{
             padding: '13px 30px',
             border: '1px solid ' + theme.border,
             color: theme.muted,

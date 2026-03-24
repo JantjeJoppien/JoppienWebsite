@@ -22,6 +22,11 @@ main {
   width: 100%;
 }
 
+.site-section,
+.hero-section {
+  scroll-margin-top: 96px;
+}
+
 .site-navbar__menu-toggle {
   display: none;
 }
