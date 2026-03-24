@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
 import Navbar from "./components/Navbar.tsx";
-import Hero from "./components/Hero.tsx";
-import About from "./components/About.tsx";
-import Interests from "./components/Interests.tsx";
-import Projects from "./components/Projects.tsx";
-import Contact from "./components/Contact.tsx";
+import MaximilianHero from "./components/MaximilianHero.tsx";
+import MaximilianAbout from "./components/MaximilianAbout.tsx";
+import MaximilianInterests from "./components/MaximilianInterests.tsx";
+import MaximilianProjects from "./components/MaximilianProjects.tsx";
+import MaximilianContact from "./components/MaximilianContact.tsx";
 import { getSectionFromPath, getSectionPath, type SectionKey } from "./siteRouting.ts";
 
 export default function App() {
@@ -114,11 +114,11 @@ export default function App() {
       <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
       <Navbar theme={theme} toggleDark={() => setDark(!dark)} navigateToSection={navigateToSection} />
       <main id="main-content">
-        <Hero theme={theme} navigateToSection={navigateToSection} />
-        <About theme={theme} />
-        <Interests theme={theme} />
-        <Projects theme={theme} />
-        <Contact theme={theme} />
+        <MaximilianHero theme={theme} navigateToSection={navigateToSection} />
+        <MaximilianAbout theme={theme} />
+        <MaximilianInterests theme={theme} />
+        <MaximilianProjects theme={theme} />
+        <MaximilianContact theme={theme} />
       </main>
     </div>
   )
