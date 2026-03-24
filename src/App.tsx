@@ -46,7 +46,7 @@ export default function App() {
     elements.forEach((element) => observer.observe(element))
 
     return () => observer.disconnect()
-  }, [])
+  }, [route])
 
   useEffect(() => {
     const handlePopState = () => setRoute(getRouteFromPath(window.location.pathname))
