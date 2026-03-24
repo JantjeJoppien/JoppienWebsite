@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 interface Theme {
   dark: boolean
   bg: string
@@ -15,6 +17,8 @@ interface Props {
 }
 
 export default function Navbar({ theme, toggleDark }: Props) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const links = [
     { label: 'Über mich', href: '#about' },
     { label: 'Interessen', href: '#interests' },
@@ -36,17 +40,44 @@ export default function Navbar({ theme, toggleDark }: Props) {
         Joppien<span style={{ color: theme.accent }}>.</span>
       </a>
 
-      <ul className="site-navbar__links" style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
+      <button
+        type="button"
+        className="site-navbar__menu-toggle"
+        aria-expanded={menuOpen}
+        aria-controls="site-navigation-links"
+        aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
+        onClick={() => setMenuOpen((open) => !open)}
+        style={{
+          background: theme.surface,
+          border: '1px solid ' + theme.border,
+          color: theme.text,
+          padding: '8px 14px',
+          borderRadius: 999,
+          cursor: 'pointer',
+          fontSize: 15,
+        }}
+      >
+        {menuOpen ? 'Schließen' : 'Menü'}
+      </button>
+
+      <ul
+        id="site-navigation-links"
+        className={`site-navbar__links ${menuOpen ? 'is-open' : ''}`}
+        style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}
+      >
         {links.map((link) => (
           <li key={link.label}>
-            <a href={link.href} style={{ fontSize: 14, color: theme.muted }}>
+            <a href={link.href} onClick={() => setMenuOpen(false)} style={{ fontSize: 14, color: theme.muted }}>
               {link.label}
             </a>
           </li>
         ))}
         <li>
           <button
-            onClick={toggleDark}
+            onClick={() => {
+              toggleDark()
+              setMenuOpen(false)
+            }}
             type="button"
             aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
             title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
