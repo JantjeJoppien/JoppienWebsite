@@ -12,13 +12,13 @@ export default function App() {
 
   const theme = {
     dark,
-    bg: dark ? '#02182B' : '#f5f8fb',
-    surface: dark ? '#0b253d' : '#ffffff',
-    border: dark ? '#173756' : '#bfd0de',
-    text: dark ? '#f7f8fb' : '#02182B',
-    muted: dark ? '#9fb3c8' : '#4d6174',
-    accent: '#D7263D',
-    accentLight: dark ? 'rgba(215, 38, 61, 0.20)' : 'rgba(215, 38, 61, 0.12)',
+    bg: dark ? '#02182B' : '#EAEBED',
+    surface: dark ? '#0b253d' : '#F6F8F9',
+    border: dark ? '#173756' : '#B7C9D1',
+    text: dark ? '#f7f8fb' : '#123547',
+    muted: dark ? '#9fb3c8' : '#4F6C79',
+    accent: dark ? '#D7263D' : '#006989',
+    accentLight: dark ? 'rgba(215, 38, 61, 0.20)' : 'rgba(0, 105, 137, 0.14)',
   }
 
   return (
@@ -27,7 +27,7 @@ export default function App() {
         backgroundColor: theme.bg,
         backgroundImage: dark
           ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
-          : 'radial-gradient(circle at 12% 16%, rgba(215, 38, 61, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(2, 24, 43, 0.12), transparent 22%), radial-gradient(circle at 76% 74%, rgba(215, 38, 61, 0.10), transparent 26%), linear-gradient(180deg, #f8fbfd 0%, #edf3f8 100%)',
+          : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)',
         color: theme.text,
         minHeight: '100vh',
         transition: 'background 0.3s, color 0.3s',

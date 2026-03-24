@@ -54,7 +54,7 @@ export default function Interests({ theme }: { theme: Theme }) {
         gap: 24,
       }}>
         {interests.map((item) => (
-          <ReactiveBorder key={item.title} glowColor={theme.accent} style={{
+          <ReactiveBorder key={item.title} glowColor={theme.dark ? theme.accent : '#37A6C9'} style={{
             backgroundColor: theme.surface,
             border: '1px solid ' + theme.border,
             borderRadius: 12,
