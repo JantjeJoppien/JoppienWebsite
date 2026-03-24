@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>joppien.dev/jantje</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #02182b;
+        --text: #f7f8fb;
+        --muted: #9fb3c8;
+        --accent: #d7263d;
+        --border: rgba(159, 179, 200, 0.24);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Georgia, serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 16% 18%, rgba(215, 38, 61, 0.22), transparent 24%),
+          linear-gradient(180deg, #072038 0%, var(--bg) 100%);
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 32px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(2, 24, 43, 0.78);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand, nav a, .jump {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      nav {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        padding: 10px 16px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+
+      nav a.active {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      main {
+        max-width: 840px;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+      }
+
+      .card {
+        padding: 40px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: rgba(11, 37, 61, 0.92);
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 12px 0 0;
+        font-size: clamp(40px, 8vw, 72px);
+        line-height: 0.95;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 18px;
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .jump {
+        padding: 12px 18px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/main">Joppien.</a>
+      <nav aria-label="Jantje Bereiche">
+        <a class="active" href="/jantje/">Jantje</a>
+        <a href="/maximilian/">Maxi</a>
+      </nav>
+    </header>
+    <main>
+      <section class="card">
+        <div class="eyebrow">joppien.dev/jantje</div>
+        <h1>Jantje ist als Bereich vorbereitet.</h1>
+        <p>Die Struktur steht bereits. Die einzelnen Unterseiten sind als Platzhalter angelegt und können jetzt Schritt für Schritt mit echtem Inhalt ersetzt werden.</p>
+        <div class="links">
+          <a class="jump" href="/jantje/about">About</a>
+          <a class="jump" href="/jantje/interests">Interests</a>
+          <a class="jump" href="/jantje/projects">Projects</a>
+          <a class="jump" href="/jantje/contact">Contact</a>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
