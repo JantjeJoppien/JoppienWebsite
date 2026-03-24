@@ -14,9 +14,11 @@ interface Theme {
 export default function HomeLanding({
   theme,
   navigateToPortfolio,
+  toggleDark,
 }: {
   theme: Theme
   navigateToPortfolio: (portfolio: PortfolioSlug) => void
+  toggleDark: () => void
 }) {
   function handlePortfolioClick(event: React.MouseEvent<HTMLAnchorElement>, portfolio: PortfolioSlug) {
     if (
@@ -34,7 +36,10 @@ export default function HomeLanding({
   }
 
   return (
-    <div className="home-landing" style={{ minHeight: '100vh' }}>
+    <div
+      className={`home-landing ${theme.dark ? 'home-landing--dark' : 'home-landing--light'}`}
+      style={{ minHeight: '100vh' }}
+    >
       <header className="home-landing__header" style={{
         borderBottom: '1px solid ' + theme.border,
       }}>
@@ -50,6 +55,7 @@ export default function HomeLanding({
               border: '1px solid ' + theme.border,
               borderRadius: 999,
               color: theme.text,
+              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
             }}
           >
             Jantje
@@ -62,10 +68,28 @@ export default function HomeLanding({
               border: '1px solid ' + theme.border,
               borderRadius: 999,
               color: theme.text,
+              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
             }}
           >
             Maximilian
           </a>
+          <button
+            type="button"
+            onClick={toggleDark}
+            aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
+            title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
+            style={{
+              padding: '10px 16px',
+              border: '1px solid ' + theme.border,
+              borderRadius: 999,
+              color: theme.text,
+              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
+              cursor: 'pointer',
+              fontSize: 14,
+            }}
+          >
+            {theme.dark ? '☀️' : '🌙'}
+          </button>
         </nav>
       </header>
 
@@ -103,11 +127,11 @@ export default function HomeLanding({
                 padding: 30,
                 borderRadius: 28,
                 border: '1px solid ' + theme.border,
-                background: theme.surface,
-                boxShadow: theme.dark ? '0 24px 60px rgba(0, 0, 0, 0.2)' : '0 24px 60px rgba(18, 53, 71, 0.08)',
+                background: theme.dark ? 'rgba(11, 37, 61, 0.74)' : 'rgba(255, 255, 255, 0.78)',
+                boxShadow: theme.dark ? '0 24px 60px rgba(0, 0, 0, 0.26)' : '0 24px 60px rgba(18, 53, 71, 0.08)',
               }}
             >
-              <h2 style={{ margin: 0, fontSize: 34, lineHeight: 1 }}>{entry.title}</h2>
+              <h2 style={{ margin: 0, fontSize: 34, lineHeight: 1, color: theme.text }}>{entry.title}</h2>
               <p style={{ color: theme.muted, fontSize: 16, lineHeight: 1.8, margin: '16px 0 28px' }}>{entry.description}</p>
               <a
                 href={`/${entry.key}/`}

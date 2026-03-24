@@ -114,7 +114,7 @@ export default function App() {
           transition: 'background 0.3s, color 0.3s',
         }}
       >
-        <HomeLanding theme={theme} navigateToPortfolio={navigateToPortfolio} />
+        <HomeLanding theme={theme} navigateToPortfolio={navigateToPortfolio} toggleDark={() => setDark(!dark)} />
       </div>
     )
   }
