@@ -49,7 +49,7 @@ export default function Projects({ theme }: { theme: Theme }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {projects.map((project) => (
-          <ReactiveBorder key={project.title} className="project-card" glowColor={theme.dark ? theme.accent : '#37A6C9'} style={{
+          <ReactiveBorder key={project.title} className="project-card" glowColor={theme.dark ? theme.accent : 'rgba(55, 166, 201, 0.45)'} style={{
             backgroundColor: theme.surface,
             border: '1px solid ' + theme.border,
             borderRadius: 12,

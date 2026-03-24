@@ -52,7 +52,7 @@ export default function About({ theme }: { theme: Theme }) {
         </div>
       </div>
 
-      <ReactiveBorder className="about-card" glowColor={theme.dark ? theme.accent : '#37A6C9'} style={{
+      <ReactiveBorder className="about-card" glowColor={theme.dark ? theme.accent : 'rgba(55, 166, 201, 0.45)'} style={{
         backgroundColor: theme.surface,
         border: '1px solid ' + theme.border,
         borderRadius: 12,
