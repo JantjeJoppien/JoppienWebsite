@@ -9,6 +9,8 @@ interface Theme {
   accentLight: string
 }
 
+import GlitchText from "./GlitchText.tsx";
+
 export default function Hero({ theme }: { theme: Theme }) {
   return (
     <section style={{
@@ -23,16 +25,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         Hey, ich bin
       </p>
 
-      <h1 style={{
-        fontSize: 'clamp(56px, 9vw, 100px)',
-        fontWeight: 800,
-        lineHeight: 1.0,
-        letterSpacing: '-3px',
-        color: theme.text,
-        marginBottom: 32,
-      }}>
-        Maxi.
-      </h1>
+      <GlitchText text="Maxi" color={theme.text} />
 
       <p style={{
         fontSize: 18,
