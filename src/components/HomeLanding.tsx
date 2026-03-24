@@ -3,6 +3,7 @@ import jantjeMaxiImage from "../assets/JantjeMaxi.JPEG";
 import happyImage from "../assets/Happy.JPEG";
 import lunaImage from "../assets/Luna.jpg";
 import odinImage from "../assets/Odin.jpg";
+import CountUpNumber from "./CountUpNumber.tsx";
 
 interface Theme {
   dark: boolean
@@ -107,7 +108,7 @@ export default function HomeLanding({
 
       <main className="home-landing__main">
         <section className="home-landing__hero" style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div>
+          <div className="reveal-up" data-reveal>
             <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 18 }}>
               joppien.dev
             </p>
@@ -121,6 +122,10 @@ export default function HomeLanding({
           </div>
 
           <aside
+            className="home-landing__photo-stack reveal-up reveal-delay-1"
+            data-reveal
+          >
+            <div
             className="home-landing__photo-placeholder"
             style={{
               border: '1px solid ' + theme.border,
@@ -136,6 +141,25 @@ export default function HomeLanding({
             <p style={{ margin: '18px 0 0', color: theme.muted, lineHeight: 1.75 }}>
               Zusammen unterwegs, zusammen im Leben und jetzt auch gemeinsam hier auf joppien.dev zu Hause.
             </p>
+            </div>
+
+            <div
+              className="home-landing__countup-card"
+              style={{
+                border: '1px solid ' + theme.border,
+                background: theme.dark ? 'rgba(11, 37, 61, 0.68)' : 'rgba(255, 255, 255, 0.8)',
+              }}
+            >
+              <p style={{ color: theme.accent, fontSize: 12, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>
+                Seit dem 05.05.2025
+              </p>
+              <div className="home-landing__countup-number" style={{ marginTop: 12 }}>
+                <CountUpNumber />
+              </div>
+              <p style={{ margin: '10px 0 0', color: theme.muted, fontSize: 15, lineHeight: 1.7 }}>
+                Tage verheiratet und jeden Tag kommt einer dazu.
+              </p>
+            </div>
           </aside>
         </section>
 
@@ -153,7 +177,8 @@ export default function HomeLanding({
             },
           ].map((entry) => (
             <article
-              className="home-landing__card"
+              className="home-landing__card reveal-up"
+              data-reveal
               key={entry.key}
               style={{
                 padding: 30,
@@ -184,7 +209,7 @@ export default function HomeLanding({
         </section>
 
         <section className="home-landing__dogs" style={{ maxWidth: 1100, margin: '72px auto 0' }}>
-          <div style={{ maxWidth: 720 }}>
+          <div className="reveal-up" data-reveal style={{ maxWidth: 720 }}>
             <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>
               Family Crew
             </p>
@@ -200,7 +225,8 @@ export default function HomeLanding({
             {dogs.map((dog) => (
               <article
                 key={dog.name}
-                className="home-landing__dog-card"
+                className="home-landing__dog-card reveal-up"
+                data-reveal
                 style={{
                   border: '1px solid ' + theme.border,
                   background: theme.dark ? 'rgba(11, 37, 61, 0.68)' : 'rgba(255, 255, 255, 0.8)',

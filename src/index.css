@@ -76,6 +76,11 @@ main {
   align-items: start;
 }
 
+.home-landing__photo-stack {
+  display: grid;
+  gap: 18px;
+}
+
 .home-landing__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -84,6 +89,23 @@ main {
 
 .home-landing__card {
   backdrop-filter: blur(14px);
+}
+
+.home-landing__countup-card {
+  padding: 22px 24px;
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 60px rgba(18, 53, 71, 0.08);
+}
+
+.home-landing__countup-number {
+  font-size: clamp(40px, 7vw, 68px);
+  font-weight: 800;
+  line-height: 0.95;
+  background: linear-gradient(135deg, #3b82f6 0%, #14b8a6 52%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .home-landing__photo-placeholder {
