@@ -1,73 +1,105 @@
-# React + TypeScript + Vite
+# Maximilian Joppien
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Persönliche Portfolio-Website von Maximilian Joppien, gebaut mit React, TypeScript und Vite.
 
-Currently, two official plugins are available:
+## Überblick
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Die Website dient als persönliche Portfolio-Seite mit Fokus auf:
 
-## React Compiler
+- kurze Vorstellung
+- Interessen
+- ausgewählte Projekte
+- Kontaktmöglichkeiten
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Optisch unterstützt die Seite Light Mode und Dark Mode mit einer Farbwelt auf Basis von Crimson und Nights.
 
-## Expanding the ESLint configuration
+## Tech-Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- ESLint
+- Tailwind CSS
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Lokale Entwicklung
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Voraussetzungen:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 20+ empfohlen
+- npm
+
+Projekt starten:
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Die Entwicklungsumgebung läuft anschließend standardmäßig über Vite lokal im Browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Verfügbare Skripte
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+```
+
+Startet den lokalen Entwicklungsserver.
+
+```bash
+npm run build
+```
+
+Erstellt den Production-Build im Ordner `dist/`.
+
+```bash
+npm run preview
+```
+
+Startet eine lokale Vorschau des Production-Builds.
+
+```bash
+npm run lint
+```
+
+Prüft den Code mit ESLint.
+
+## Projektstruktur
+
+```text
+src/
+  components/   Wiederverwendbare UI-Bausteine
+  App.tsx       App-Layout und Theme-Logik
+  main.tsx      Einstiegspunkt der Anwendung
+  index.css     Globale Styles
+public/         Statische Dateien
+```
+
+## Design
+
+Die Website unterstützt Light Mode und Dark Mode. Die aktuelle Farbwelt basiert auf:
+
+- Crimson: `#D7263D`
+- Nights: `#02182B`
+
+## Deployment
+
+Das Repository enthält bereits eine einfache Deployment-Struktur:
+
+- [Dockerfile](./Dockerfile) für ein Nginx-basiertes Container-Setup
+- [deploy.yml](./.github/workflows/deploy.yml) für automatisches Deployment über GitHub Actions
+
+Der Workflow wird bei einem Push auf `main` ausgeführt und verbindet sich per SSH mit dem Server. Dort werden anschließend `git pull`, `docker compose up -d --build` und ein Docker-Image-Cleanup ausgeführt.
+
+Wenn du deployen willst, sollten diese GitHub Secrets gesetzt sein:
+
+- `SERVER_IP_ADDRESS`
+- `SERVER_USER`
+- `SERVER_SSH_KEY`
+
+## Empfehlung vor dem Commit
+
+Vor jedem Commit mindestens einmal ausführen:
+
+```bash
+npm run build
 ```
