@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getSectionPath, type SectionKey } from "../siteRouting.ts";
+import { getPortfolioPath, type PortfolioSlug, type SectionKey } from "../siteRouting.ts";
 
 interface Theme {
   dark: boolean
@@ -15,10 +15,12 @@ interface Theme {
 interface Props {
   theme: Theme
   toggleDark: () => void
+  portfolio: PortfolioSlug
+  portfolioLabel: string
   navigateToSection: (section: SectionKey) => void
 }
 
-export default function Navbar({ theme, toggleDark, navigateToSection }: Props) {
+export default function Navbar({ theme, toggleDark, portfolio, portfolioLabel, navigateToSection }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -98,10 +100,13 @@ export default function Navbar({ theme, toggleDark, navigateToSection }: Props) 
         className={`site-navbar__links ${menuOpen ? 'is-open' : ''}`}
         style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}
       >
+        <li>
+          <span style={{ fontSize: 14, color: theme.text, fontWeight: 700 }}>{portfolioLabel}</span>
+        </li>
         {links.map((link) => (
           <li key={link.label}>
             <a
-              href={getSectionPath(link.section)}
+              href={getPortfolioPath(portfolio, link.section)}
               onClick={(event) => handleSectionClick(event, link.section)}
               style={{ fontSize: 14, color: theme.muted }}
             >

@@ -11,9 +11,7 @@ FROM nginx:1.27-alpine
 LABEL authors="jantje"
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/public/main-placeholder.html /usr/share/nginx/html/index.html
-COPY --from=build /app/public/jantje /usr/share/nginx/html/jantje
-COPY --from=build /app/dist /usr/share/nginx/html/maximilian
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

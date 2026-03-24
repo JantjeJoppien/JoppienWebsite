@@ -12,7 +12,7 @@ interface Theme {
 import GlitchText from "./GlitchText.tsx";
 import maximilianImage from "../assets/Maximilian.PNG";
 import ProfileCard from "./ProfileCard.tsx";
-import { getSectionPath, type SectionKey } from "../siteRouting.ts";
+import { getPortfolioPath, type SectionKey } from "../siteRouting.ts";
 
 export default function MaximilianHero({ theme, navigateToSection }: { theme: Theme, navigateToSection: (section: SectionKey) => void }) {
   function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
@@ -61,7 +61,7 @@ export default function MaximilianHero({ theme, navigateToSection }: { theme: Th
         </p>
 
         <div className="hero-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <a href={getSectionPath('about')} onClick={(event) => handleSectionClick(event, 'about')} className="button-link button-link--primary" style={{
+          <a href={getPortfolioPath('maximilian', 'about')} onClick={(event) => handleSectionClick(event, 'about')} className="button-link button-link--primary" style={{
             padding: '13px 30px',
             backgroundColor: theme.accent,
             color: '#fff',
@@ -71,7 +71,7 @@ export default function MaximilianHero({ theme, navigateToSection }: { theme: Th
           }}>
             Mehr erfahren
           </a>
-          <a href={getSectionPath('contact')} onClick={(event) => handleSectionClick(event, 'contact')} className="button-link button-link--secondary" style={{
+          <a href={getPortfolioPath('maximilian', 'contact')} onClick={(event) => handleSectionClick(event, 'contact')} className="button-link button-link--secondary" style={{
             padding: '13px 30px',
             border: '1px solid ' + theme.border,
             color: theme.muted,
