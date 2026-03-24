@@ -1,11 +1,11 @@
-@import url('https://fonts.cdnfonts.com/css/opendyslexic');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'OpenDyslexic', Georgia, serif;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
   box-sizing: border-box;
 }
 
@@ -20,6 +20,47 @@ body {
 
 main {
   width: 100%;
+}
+
+.home-landing {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 184, 107, 0.18), transparent 22%),
+    radial-gradient(circle at 85% 16%, rgba(0, 105, 137, 0.2), transparent 24%),
+    radial-gradient(circle at 50% 78%, rgba(215, 38, 61, 0.12), transparent 28%),
+    linear-gradient(180deg, #f8f3ea 0%, #eef3f6 52%, #e3eaef 100%);
+}
+
+.home-landing__header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 32px;
+  background: rgba(248, 243, 234, 0.78);
+  backdrop-filter: blur(16px);
+}
+
+.home-landing__nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.home-landing__main {
+  padding: 72px 24px 96px;
+}
+
+.home-landing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.home-landing__card {
+  backdrop-filter: blur(14px);
 }
 
 .site-section,
@@ -548,6 +589,15 @@ button:focus-visible {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .home-landing__header {
+    padding: 18px 24px;
+  }
+
+  .home-landing__main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -615,6 +665,15 @@ button:focus-visible {
   .hero-section {
     padding-top: 128px !important;
     padding-bottom: 56px !important;
+  }
+
+  .home-landing__header {
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .home-landing__main {
+    padding: 56px 16px 72px;
   }
 
   .hero-portrait {

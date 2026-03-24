@@ -34,24 +34,14 @@ export default function HomeLanding({
   }
 
   return (
-    <div style={{ minHeight: '100vh' }}>
-      <header style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 30,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 20,
-        padding: '20px 32px',
+    <div className="home-landing" style={{ minHeight: '100vh' }}>
+      <header className="home-landing__header" style={{
         borderBottom: '1px solid ' + theme.border,
-        backgroundColor: theme.bg + 'dd',
-        backdropFilter: 'blur(12px)',
       }}>
         <a href="/" style={{ fontWeight: 800, fontSize: 22, color: theme.text }}>
           Joppien<span style={{ color: theme.accent }}>.</span>
         </a>
-        <nav style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+        <nav className="home-landing__nav">
           <a
             href="/jantje/"
             onClick={(event) => handlePortfolioClick(event, 'jantje')}
@@ -79,7 +69,7 @@ export default function HomeLanding({
         </nav>
       </header>
 
-      <main style={{ padding: '72px 24px 96px' }}>
+      <main className="home-landing__main">
         <section style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 18 }}>
             joppien.dev
@@ -93,13 +83,7 @@ export default function HomeLanding({
           </p>
         </section>
 
-        <section style={{
-          maxWidth: 1100,
-          margin: '56px auto 0',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: 24,
-        }}>
+        <section className="home-landing__grid" style={{ maxWidth: 1100, margin: '56px auto 0' }}>
           {[
             {
               key: 'jantje' as const,
@@ -113,6 +97,7 @@ export default function HomeLanding({
             },
           ].map((entry) => (
             <article
+              className="home-landing__card"
               key={entry.key}
               style={{
                 padding: 30,
