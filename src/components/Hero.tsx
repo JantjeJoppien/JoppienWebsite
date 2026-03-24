@@ -25,7 +25,7 @@ export default function Hero({ theme }: { theme: Theme }) {
         Hey, ich bin
       </p>
 
-      <GlitchText text="Maxi" color={theme.text} />
+      <GlitchText text="Maxi" color={theme.text} dark={theme.dark} />
 
       <p style={{
         fontSize: 18,

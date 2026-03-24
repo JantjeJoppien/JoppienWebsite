@@ -1,12 +1,13 @@
 type Props = {
   text: string
   color: string
+  dark: boolean
 }
 
-export default function GlitchText({ text, color }: Props) {
+export default function GlitchText({ text, color, dark }: Props) {
   return (
     <h1
-      className="glitch-text"
+      className={`glitch-text ${dark ? 'glitch-text--dark' : 'glitch-text--light'}`}
       aria-label={text}
       style={{
         color,
