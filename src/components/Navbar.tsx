@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getSectionPath, type SectionKey } from "../siteRouting.ts";
 
 interface Theme {
   dark: boolean
@@ -14,9 +15,10 @@ interface Theme {
 interface Props {
   theme: Theme
   toggleDark: () => void
+  navigateToSection: (section: SectionKey) => void
 }
 
-export default function Navbar({ theme, toggleDark }: Props) {
+export default function Navbar({ theme, toggleDark, navigateToSection }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -30,12 +32,28 @@ export default function Navbar({ theme, toggleDark }: Props) {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
 
-  const links = [
-    { label: 'Über mich', href: '#about' },
-    { label: 'Interessen', href: '#interests' },
-    { label: 'Projekte', href: '#projects' },
-    { label: 'Kontakt', href: '#contact' },
+  const links: Array<{ label: string, section: SectionKey }> = [
+    { label: 'Über mich', section: 'about' },
+    { label: 'Interessen', section: 'interests' },
+    { label: 'Projekte', section: 'projects' },
+    { label: 'Kontakt', section: 'contact' },
   ]
+
+  function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return
+    }
+
+    event.preventDefault()
+    setMenuOpen(false)
+    navigateToSection(section)
+  }
 
   return (
     <nav className="site-navbar" aria-label="Hauptnavigation" style={{
@@ -47,7 +65,11 @@ export default function Navbar({ theme, toggleDark }: Props) {
       backdropFilter: 'blur(12px)',
       transition: 'background 0.3s',
     }}>
-      <a href="#" aria-label="Zur Startseite" style={{ fontWeight: 800, fontSize: 20, color: theme.text }}>
+      <a
+        href="/"
+        aria-label="Zur Hauptseite"
+        style={{ fontWeight: 800, fontSize: 20, color: theme.text }}
+      >
         Joppien<span style={{ color: theme.accent }}>.</span>
       </a>
 
@@ -78,7 +100,11 @@ export default function Navbar({ theme, toggleDark }: Props) {
       >
         {links.map((link) => (
           <li key={link.label}>
-            <a href={link.href} onClick={() => setMenuOpen(false)} style={{ fontSize: 14, color: theme.muted }}>
+            <a
+              href={getSectionPath(link.section)}
+              onClick={(event) => handleSectionClick(event, link.section)}
+              style={{ fontSize: 14, color: theme.muted }}
+            >
               {link.label}
             </a>
           </li>

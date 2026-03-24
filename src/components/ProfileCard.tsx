@@ -56,14 +56,13 @@ export default function ProfileCard({ theme, imageSrc }: ProfileCardProps) {
         </div>
 
         <div className="profile-card__body">
-          <div className="profile-card__eyebrow">PROFILE CARD</div>
           <h2 className="profile-card__name">Maximilian Joppien</h2>
-          <p className="profile-card__role">Developer, Gamer, Formel 1 Fan</p>
+          <p className="profile-card__role">Entwickler, Gamer</p>
 
           <div className="profile-card__chips">
-            <span>React</span>
-            <span>TypeScript</span>
+            <span>Frontend</span>
             <span>Gaming</span>
+            <span>Sports</span>
           </div>
         </div>
       </div>
