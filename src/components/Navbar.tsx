@@ -66,7 +66,7 @@ export default function Navbar({ theme, toggleDark, navigateToSection }: Props) 
       transition: 'background 0.3s',
     }}>
       <a
-        href="/main"
+        href="/"
         aria-label="Zur Hauptseite"
         style={{ fontWeight: 800, fontSize: 20, color: theme.text }}
       >
