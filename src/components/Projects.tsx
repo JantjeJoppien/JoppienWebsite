@@ -18,6 +18,7 @@ const projects = [
     desc: 'Ein Quiz-Spiel mit Fokus auf saubere Struktur, Performance und eine gute User Experience.' +
         ' Ideal für spannende Wissensduelle.',
     tags: ['React', 'FastAPI', 'TypeScript'],
+    repo: 'https://github.com/mvxsvchs/QuizBuster',
   },
   {
     emoji: '🎯',
@@ -25,6 +26,7 @@ const projects = [
     desc: 'Ein spielerisches System rund um Sticker und Sammlungen. Entwickelt, ' +
         'um Motivation und Fortschritt visuell greifbar zu machen.',
     tags: ['Kotlin', 'Android', 'Mobile', 'Gamification'],
+    repo: 'https://github.com/mvxsvchs/LumakaStickerQuest',
   }
 ]
 
@@ -73,6 +75,22 @@ export default function Projects({ theme }: { theme: Theme }) {
                   </span>
                 ))}
               </div>
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${project.title} auf GitHub öffnen`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  marginTop: 18,
+                  color: theme.accent,
+                  fontSize: 14,
+                  fontWeight: 700,
+                }}
+              >
+                GitHub ansehen
+              </a>
             </div>
           </ReactiveBorder>
         ))}
