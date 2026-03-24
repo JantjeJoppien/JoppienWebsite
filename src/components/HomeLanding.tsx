@@ -113,7 +113,7 @@ export default function HomeLanding({
               joppien.dev
             </p>
             <h1 style={{ fontSize: 'clamp(46px, 9vw, 92px)', lineHeight: 0.95, margin: 0, letterSpacing: '-0.05em', color: theme.text }}>
-              Zwei Menschen, drei Hunde und jede Menge eigene Ideen.
+              Zwei Menschen, drei Hunde und jede Menge Ideen.
             </h1>
             <p style={{ maxWidth: 640, fontSize: 19, lineHeight: 1.85, color: theme.muted, marginTop: 28 }}>
               Jantje und Maximilian teilen sich nicht nur den Namen Joppien, sondern auch dieses Zuhause im Web.
