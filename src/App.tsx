@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Navbar from "./components/Navbar.tsx";
 import Hero from "./components/Hero.tsx";
@@ -9,6 +9,35 @@ import Contact from "./components/Contact.tsx";
 
 export default function App() {
   const [dark, setDark] = useState(true)
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
+
+    if (media.matches) {
+      elements.forEach((element) => element.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    )
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
+  }, [])
 
   const theme = {
     dark,

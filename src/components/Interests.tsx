@@ -33,7 +33,7 @@ const interests = [
 
 export default function Interests({ theme }: { theme: Theme }) {
   return (
-    <section id="interests" className="site-section" style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
+    <section id="interests" className="site-section reveal-up" data-reveal style={{ padding: '96px 48px', borderTop: '1px solid ' + theme.border }}>
       <p style={{ color: theme.accent, fontSize: 14, letterSpacing: '0.1em', marginBottom: 16 }}>
         — Was mich begeistert
       </p>
@@ -53,8 +53,8 @@ export default function Interests({ theme }: { theme: Theme }) {
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 24,
       }}>
-        {interests.map((item) => (
-          <ReactiveBorder key={item.title} glowColor={theme.dark ? theme.accent : 'rgba(55, 166, 201, 0.45)'} style={{
+        {interests.map((item, index) => (
+          <ReactiveBorder key={item.title} className={`reveal-up reveal-delay-${Math.min(index + 1, 3)}`} data-reveal glowColor={theme.dark ? theme.accent : 'rgba(55, 166, 201, 0.45)'} style={{
             backgroundColor: theme.surface,
             border: '1px solid ' + theme.border,
             borderRadius: 12,
