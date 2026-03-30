@@ -1,4 +1,4 @@
-import { type PortfolioSlug } from "../siteRouting.ts";
+import { getPortfolioPath, sectionOrder, type AppRoute, type PortfolioSlug, type SectionKey } from "../siteRouting.ts";
 
 interface Theme {
   dark: boolean
@@ -15,9 +15,19 @@ interface Props {
   theme: Theme
   toggleDark: () => void
   navigateToPortfolio: (portfolio: PortfolioSlug) => void
+  navigateToSection: (section: SectionKey) => void
+  route: AppRoute
 }
 
-export default function Navbar({ theme, toggleDark, navigateToPortfolio }: Props) {
+const sectionLabels: Record<SectionKey, string> = {
+  home: 'Start',
+  about: 'Über mich',
+  interests: 'Interessen',
+  projects: 'Projekte',
+  contact: 'Kontakt',
+}
+
+export default function Navbar({ theme, toggleDark, navigateToPortfolio, navigateToSection, route }: Props) {
   function handlePortfolioClick(event: React.MouseEvent<HTMLAnchorElement>, portfolio: PortfolioSlug) {
     if (
       event.button !== 0 ||
@@ -32,6 +42,24 @@ export default function Navbar({ theme, toggleDark, navigateToPortfolio }: Props
     event.preventDefault()
     navigateToPortfolio(portfolio)
   }
+
+  function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return
+    }
+
+    event.preventDefault()
+    navigateToSection(section)
+  }
+
+  const isPortfolio = route.kind === 'portfolio'
+  const currentPortfolio = isPortfolio ? route.portfolio : 'maximilian'
 
   return (
     <nav className="site-navbar" aria-label="Hauptnavigation" style={{
@@ -58,16 +86,29 @@ export default function Navbar({ theme, toggleDark, navigateToPortfolio }: Props
       </a>
 
       <div className="site-navbar__links" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
-        {(['jantje', 'maximilian'] as const).map((slug) => (
-          <a
-            key={slug}
-            href={`/${slug}/`}
-            onClick={(event) => handlePortfolioClick(event, slug)}
-            style={{ fontSize: 14, color: theme.muted }}
-          >
-            {slug.charAt(0).toUpperCase() + slug.slice(1)}
-          </a>
-        ))}
+        {isPortfolio ? (
+          sectionOrder.map((section) => (
+            <a
+              key={section}
+              href={getPortfolioPath(currentPortfolio, section)}
+              onClick={(event) => handleSectionClick(event, section)}
+              style={{ fontSize: 14, color: theme.muted }}
+            >
+              {sectionLabels[section]}
+            </a>
+          ))
+        ) : (
+          (['jantje', 'maximilian'] as const).map((slug) => (
+            <a
+              key={slug}
+              href={`/${slug}/`}
+              onClick={(event) => handlePortfolioClick(event, slug)}
+              style={{ fontSize: 14, color: theme.muted }}
+            >
+              {slug.charAt(0).toUpperCase() + slug.slice(1)}
+            </a>
+          ))
+        )}
         <button
           onClick={toggleDark}
           type="button"

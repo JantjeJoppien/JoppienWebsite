@@ -156,7 +156,13 @@ export default function App() {
       }}
     >
       <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-      <Navbar theme={theme} toggleDark={() => setDark(!dark)} navigateToPortfolio={navigateToPortfolio} />
+      <Navbar
+        theme={theme}
+        toggleDark={() => setDark(!dark)}
+        navigateToPortfolio={navigateToPortfolio}
+        navigateToSection={navigateToSection}
+        route={route}
+      />
       <main id="main-content">
         {mainContent}
       </main>
