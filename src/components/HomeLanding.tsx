@@ -19,11 +19,9 @@ interface Theme {
 export default function HomeLanding({
   theme,
   navigateToPortfolio,
-  toggleDark,
 }: {
   theme: Theme
   navigateToPortfolio: (portfolio: PortfolioSlug) => void
-  toggleDark: () => void
 }) {
   function handlePortfolioClick(event: React.MouseEvent<HTMLAnchorElement>, portfolio: PortfolioSlug) {
     if (
@@ -51,61 +49,6 @@ export default function HomeLanding({
       className={`home-landing ${theme.dark ? 'home-landing--dark' : 'home-landing--light'}`}
       style={{ minHeight: '100vh' }}
     >
-      <header className="home-landing__header" style={{
-        borderBottom: '1px solid ' + theme.border,
-      }}>
-        <a href="/" style={{ fontWeight: 800, fontSize: 20, color: theme.text }}>
-          Joppien<span style={{ color: theme.accent }}>.</span>
-        </a>
-        <nav className="home-landing__nav">
-          <a
-            href="/jantje/"
-            onClick={(event) => handlePortfolioClick(event, 'jantje')}
-            style={{
-              padding: '6px 14px',
-              border: '1px solid ' + theme.border,
-              borderRadius: 999,
-              color: theme.text,
-              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
-              fontSize: 15,
-            }}
-          >
-            Jantje
-          </a>
-          <a
-            href="/maximilian/"
-            onClick={(event) => handlePortfolioClick(event, 'maximilian')}
-            style={{
-              padding: '6px 14px',
-              border: '1px solid ' + theme.border,
-              borderRadius: 999,
-              color: theme.text,
-              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
-              fontSize: 15,
-            }}
-          >
-            Maximilian
-          </a>
-          <button
-            type="button"
-            onClick={toggleDark}
-            aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
-            title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
-            style={{
-              padding: '6px 14px',
-              border: '1px solid ' + theme.border,
-              borderRadius: 999,
-              color: theme.text,
-              background: theme.dark ? 'rgba(11, 37, 61, 0.46)' : 'rgba(255, 255, 255, 0.56)',
-              cursor: 'pointer',
-              fontSize: 14,
-            }}
-          >
-            {theme.dark ? '☀️' : '🌙'}
-          </button>
-        </nav>
-      </header>
-
       <div className="home-landing__main">
         <section className="home-landing__hero" style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div className="reveal-up" data-reveal>

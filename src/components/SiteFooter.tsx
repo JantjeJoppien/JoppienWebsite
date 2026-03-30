@@ -42,6 +42,8 @@ export default function SiteFooter({
       style={{
         borderTop: '1px solid ' + theme.border,
         color: theme.muted,
+        backgroundColor: theme.dark ? 'rgba(4, 12, 27, 0.45)' : 'rgba(255, 255, 255, 0.55)',
+        backdropFilter: 'blur(12px)',
       }}
     >
       <div className="site-footer__inner">

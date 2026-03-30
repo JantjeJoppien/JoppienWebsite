@@ -104,7 +104,6 @@ export default function App() {
   }
 
   const activePortfolio = route.kind === 'portfolio' ? route.portfolio : 'maximilian'
-  const portfolioLabel = activePortfolio === 'maximilian' ? 'Maximilian' : 'Jantje'
   const navigateToSection = createSectionNavigator(activePortfolio)
 
   const mainContent = (() => {
@@ -113,7 +112,6 @@ export default function App() {
         <HomeLanding
           theme={theme}
           navigateToPortfolio={navigateToPortfolio}
-          toggleDark={() => setDark(!dark)}
         />
       )
     }
@@ -158,13 +156,7 @@ export default function App() {
       }}
     >
       <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-      <Navbar
-        theme={theme}
-        toggleDark={() => setDark(!dark)}
-        portfolio={activePortfolio}
-        portfolioLabel={portfolioLabel}
-        navigateToSection={navigateToSection}
-      />
+      <Navbar theme={theme} toggleDark={() => setDark(!dark)} navigateToPortfolio={navigateToPortfolio} />
       <main id="main-content">
         {mainContent}
       </main>

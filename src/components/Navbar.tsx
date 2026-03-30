@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { getPortfolioPath, type PortfolioSlug, type SectionKey } from "../siteRouting.ts";
+import { type PortfolioSlug } from "../siteRouting.ts";
 
 interface Theme {
   dark: boolean
@@ -15,33 +14,11 @@ interface Theme {
 interface Props {
   theme: Theme
   toggleDark: () => void
-  portfolio: PortfolioSlug
-  portfolioLabel: string
-  navigateToSection: (section: SectionKey) => void
+  navigateToPortfolio: (portfolio: PortfolioSlug) => void
 }
 
-export default function Navbar({ theme, toggleDark, portfolio, portfolioLabel, navigateToSection }: Props) {
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false)
-      }
-    }
-
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
-
-  const links: Array<{ label: string, section: SectionKey }> = [
-    { label: 'Über mich', section: 'about' },
-    { label: 'Interessen', section: 'interests' },
-    { label: 'Projekte', section: 'projects' },
-    { label: 'Kontakt', section: 'contact' },
-  ]
-
-  function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
+export default function Navbar({ theme, toggleDark, navigateToPortfolio }: Props) {
+  function handlePortfolioClick(event: React.MouseEvent<HTMLAnchorElement>, portfolio: PortfolioSlug) {
     if (
       event.button !== 0 ||
       event.metaKey ||
@@ -53,17 +30,22 @@ export default function Navbar({ theme, toggleDark, portfolio, portfolioLabel, n
     }
 
     event.preventDefault()
-    setMenuOpen(false)
-    navigateToSection(section)
+    navigateToPortfolio(portfolio)
   }
 
   return (
     <nav className="site-navbar" aria-label="Hauptnavigation" style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 50,
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
       padding: '18px 48px',
       borderBottom: '1px solid ' + theme.border,
-      backgroundColor: theme.bg + 'ee',
+      backgroundColor: theme.dark ? 'rgba(4, 12, 27, 0.45)' : 'rgba(255, 255, 255, 0.55)',
       backdropFilter: 'blur(12px)',
       transition: 'background 0.3s',
     }}>
@@ -75,69 +57,35 @@ export default function Navbar({ theme, toggleDark, portfolio, portfolioLabel, n
         Joppien<span style={{ color: theme.accent }}>.</span>
       </a>
 
-      <button
-        type="button"
-        className="site-navbar__menu-toggle"
-        aria-expanded={menuOpen}
-        aria-controls="site-navigation-links"
-        aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
-        onClick={() => setMenuOpen((open) => !open)}
-        style={{
-          background: theme.surface,
-          border: '1px solid ' + theme.border,
-          color: theme.text,
-          padding: '8px 14px',
-          borderRadius: 999,
-          cursor: 'pointer',
-          fontSize: 15,
-        }}
-      >
-        {menuOpen ? 'Schließen' : 'Menü'}
-      </button>
-
-      <ul
-        id="site-navigation-links"
-        className={`site-navbar__links ${menuOpen ? 'is-open' : ''}`}
-        style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}
-      >
-        <li>
-          <span style={{ fontSize: 14, color: theme.text, fontWeight: 700 }}>{portfolioLabel}</span>
-        </li>
-        {links.map((link) => (
-          <li key={link.label}>
-            <a
-              href={getPortfolioPath(portfolio, link.section)}
-              onClick={(event) => handleSectionClick(event, link.section)}
-              style={{ fontSize: 14, color: theme.muted }}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-        <li>
-          <button
-            onClick={() => {
-              toggleDark()
-              setMenuOpen(false)
-            }}
-            type="button"
-            aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
-            title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
-            style={{
-              background: theme.surface,
-              border: '1px solid ' + theme.border,
-              color: theme.text,
-              padding: '6px 14px',
-              borderRadius: 20,
-              cursor: 'pointer',
-              fontSize: 15,
-              transition: 'background 0.2s',
-            }}
+      <div className="site-navbar__links" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
+        {(['jantje', 'maximilian'] as const).map((slug) => (
+          <a
+            key={slug}
+            href={`/${slug}/`}
+            onClick={(event) => handlePortfolioClick(event, slug)}
+            style={{ fontSize: 14, color: theme.muted }}
           >
-            {theme.dark ? '☀️' : '🌙'}
-          </button>
-        </li>
-      </ul>
+            {slug.charAt(0).toUpperCase() + slug.slice(1)}
+          </a>
+        ))}
+        <button
+          onClick={toggleDark}
+          type="button"
+          aria-label={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
+          title={theme.dark ? 'Zum Light Mode wechseln' : 'Zum Dark Mode wechseln'}
+          style={{
+            background: 'transparent',
+            border: '1px solid ' + theme.border,
+            color: theme.text,
+            padding: '6px 14px',
+            borderRadius: 999,
+            cursor: 'pointer',
+            fontSize: 15,
+          }}
+        >
+          {theme.dark ? '☀️' : '🌙'}
+        </button>
+      </div>
     </nav>
   )
 }
