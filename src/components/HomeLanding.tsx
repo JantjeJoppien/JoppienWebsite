@@ -106,7 +106,7 @@ export default function HomeLanding({
         </nav>
       </header>
 
-      <main className="home-landing__main">
+      <div className="home-landing__main">
         <section className="home-landing__hero" style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div className="reveal-up" data-reveal>
             <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 18 }}>
@@ -239,7 +239,8 @@ export default function HomeLanding({
             ))}
           </div>
         </section>
-      </main>
+      </div>
+
     </div>
   )
 }

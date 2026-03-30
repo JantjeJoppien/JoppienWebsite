@@ -12,6 +12,8 @@ import JantjeAbout from "./components/JantjeAbout.tsx";
 import JantjeInterests from "./components/JantjeInterests.tsx";
 import JantjeProjects from "./components/JantjeProjects.tsx";
 import JantjeContact from "./components/JantjeContact.tsx";
+import LegalPage from "./components/LegalPage.tsx";
+import SiteFooter from "./components/SiteFooter.tsx";
 import { getRouteFromPath, getRoutePath, type AppRoute, type PortfolioSlug, type SectionKey } from "./siteRouting.ts";
 
 export default function App() {
@@ -59,7 +61,7 @@ export default function App() {
     isFirstRouteSync.current = false
 
     const frame = window.requestAnimationFrame(() => {
-      if (route.kind === 'home' || route.section === 'home') {
+      if (route.kind !== 'portfolio' || route.section === 'home') {
         window.scrollTo({ top: 0, behavior })
         return
       }
@@ -101,48 +103,27 @@ export default function App() {
     accentLight: dark ? 'rgba(215, 38, 61, 0.20)' : 'rgba(0, 105, 137, 0.14)',
   }
 
-  if (route.kind === 'home') {
+  const activePortfolio = route.kind === 'portfolio' ? route.portfolio : 'maximilian'
+  const portfolioLabel = activePortfolio === 'maximilian' ? 'Maximilian' : 'Jantje'
+  const navigateToSection = createSectionNavigator(activePortfolio)
+
+  const mainContent = (() => {
+    if (route.kind === 'home') {
+      return (
+        <HomeLanding
+          theme={theme}
+          navigateToPortfolio={navigateToPortfolio}
+          toggleDark={() => setDark(!dark)}
+        />
+      )
+    }
+
+    if (route.kind === 'legal') {
+      return <LegalPage theme={theme} page={route.page} />
+    }
+
     return (
-      <div
-        style={{
-          backgroundColor: theme.bg,
-          backgroundImage: dark
-            ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
-            : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)',
-          color: theme.text,
-          minHeight: '100vh',
-          transition: 'background 0.3s, color 0.3s',
-        }}
-      >
-        <HomeLanding theme={theme} navigateToPortfolio={navigateToPortfolio} toggleDark={() => setDark(!dark)} />
-      </div>
-    )
-  }
-
-  const navigateToSection = createSectionNavigator(route.portfolio)
-  const portfolioLabel = route.portfolio === 'maximilian' ? 'Maximilian' : 'Jantje'
-
-  return (
-    <div
-      style={{
-        backgroundColor: theme.bg,
-        backgroundImage: dark
-          ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
-          : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)',
-        color: theme.text,
-        minHeight: '100vh',
-        transition: 'background 0.3s, color 0.3s',
-      }}
-    >
-      <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-      <Navbar
-        theme={theme}
-        toggleDark={() => setDark(!dark)}
-        portfolio={route.portfolio}
-        portfolioLabel={portfolioLabel}
-        navigateToSection={navigateToSection}
-      />
-      <main id="main-content">
+      <>
         {route.portfolio === 'maximilian' ? (
           <>
             <MaximilianHero theme={theme} navigateToSection={navigateToSection} />
@@ -160,7 +141,34 @@ export default function App() {
             <JantjeContact theme={theme} />
           </>
         )}
+      </>
+    )
+  })()
+
+  return (
+    <div
+      style={{
+        backgroundColor: theme.bg,
+        backgroundImage: dark
+          ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
+          : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)',
+        color: theme.text,
+        minHeight: '100vh',
+        transition: 'background 0.3s, color 0.3s',
+      }}
+    >
+      <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
+      <Navbar
+        theme={theme}
+        toggleDark={() => setDark(!dark)}
+        portfolio={activePortfolio}
+        portfolioLabel={portfolioLabel}
+        navigateToSection={navigateToSection}
+      />
+      <main id="main-content">
+        {mainContent}
       </main>
+      <SiteFooter theme={theme} navigateToRoute={navigateToRoute} />
     </div>
   )
 }
