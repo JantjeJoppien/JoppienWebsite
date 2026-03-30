@@ -18,94 +18,117 @@ const legalContent: Record<LegalSlug, {
 }> = {
   impressum: {
     title: 'Impressum',
-    intro: 'Anbieterkennzeichnung fuer die Website joppien.dev auf Basis der aktuell im Projekt hinterlegten Informationen.',
+    intro: 'Hier finden Sie die offiziellen Kontakt- und Verantwortlichkeitsangaben zu joppien.dev als privatem Portfolio-Auftritt.',
     sections: [
       {
-        heading: 'Angaben gemaess Paragraph 5 DDG',
+        heading: 'Angaben gemäß § 5 DDG',
         paragraphs: [
           'Maximilian Joppien',
-          'E-Mail: maximilian@joppien.dev',
-          'Die vollstaendige ladungsfaehige Anschrift ist im Repository nicht hinterlegt und sollte vor einer Live-Schaltung dieser Seite noch ergaenzt werden.',
+          'E-Mail: familie@joppien.dev',
+          'Telefon: +49 2431 9015179',
+          'Eine ladungsfähige Anschrift wird zeitnah hinterlegt, sobald die finale private Adresse bestätigt ist.',
+          'Privater Portfolio-Auftritt ohne Geschäftstätigkeit.',
         ],
       },
       {
-        heading: 'Inhaltlich verantwortlich',
+        heading: 'Inhaltlich Verantwortliche',
         paragraphs: [
-          'Verantwortlich fuer die Inhalte dieser Website ist, soweit nicht anders gekennzeichnet, Maximilian Joppien.',
+          'Sämtliche Inhalte verantwortet Maximilian Joppien.',
         ],
       },
       {
-        heading: 'Haftung fuer Inhalte und Links',
+        heading: 'Register, Aufsicht, Berufsrecht',
         paragraphs: [
-          'Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Fuer die Richtigkeit, Vollstaendigkeit und Aktualitaet wird jedoch keine Gewaehr uebernommen.',
-          'Diese Website kann Links zu externen Angeboten enthalten. Fuer deren Inhalte sind ausschliesslich die jeweiligen Betreiber verantwortlich.',
+          'Es handelt sich um rein private Portfolio-Auftritte; eine Eintragung in ein Handels-, Partnerschafts- oder Vereinsregister findet nicht statt.',
+          'Eine Genehmigung nach besonderen Berufsgesetzen oder eine zuständige Aufsichtsbehörde ist nicht erforderlich.',
+        ],
+      },
+      {
+        heading: 'Kontakt',
+        paragraphs: [
+          'Per E-Mail sind wir unter familie@joppien.dev erreichbar.',
+          'Telefonisch erreichen Sie uns unter +49 2431 9015179.',
+        ],
+      },
+      {
+        heading: 'Digital Services Act / DSA',
+        paragraphs: [
+          'Nach aktueller Einschätzung handelt es sich bei diesem Portfolio nicht um einen vom DSA erfassten Vermittlungsdienst und daher besteht dort keine gesonderte Meldepflicht.',
+        ],
+      },
+      {
+        heading: 'Haftung für Inhalte',
+        paragraphs: [
+          'Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt. Für Aktualität, Vollständigkeit oder Fehlerfreiheit wird jedoch keine Gewähr übernommen.',
+          'Verweise auf externe Inhalte erfolgen nach besten Wissen, für deren Inhalte sind die jeweiligen Betreiber verantwortlich.',
         ],
       },
     ],
   },
   datenschutz: {
-    title: 'Datenschutzerklaerung',
-    intro: 'Diese Datenschutzerklaerung beschreibt die Verarbeitung personenbezogener Daten fuer die aktuelle technische Auspraegung dieser Website.',
+    title: 'Datenschutzerklärung',
+    intro: 'Diese Erklärung beschreibt, wie personenbezogene Daten für den aktuellen Stand des Projekts verarbeitet werden.',
     sections: [
       {
-        heading: 'Verantwortliche Stelle',
+        heading: 'Verantwortlicher',
         paragraphs: [
-          'Verantwortlich fuer die Datenverarbeitung im Zusammenhang mit dieser Website ist Maximilian Joppien.',
+          'Verantwortlich für die Verarbeitung ist Maximilian Joppien.',
           'Kontakt: maximilian@joppien.dev',
-          'Die postalische Anschrift sollte vor einer produktiven Veroeffentlichung noch im Impressum und in dieser Datenschutzerklaerung ergaenzt werden.',
+          'Eine vollständige postalische Anschrift sollte vor einer Live-Schaltung ergänzt werden.',
         ],
       },
       {
         heading: 'Server-Logfiles',
         paragraphs: [
-          'Beim Aufruf dieser Website koennen durch das Hosting technisch notwendige Verbindungsdaten verarbeitet werden, zum Beispiel IP-Adresse, Datum und Uhrzeit, angeforderte Datei, Referrer und User-Agent.',
-          'Die konkrete Ausgestaltung haengt vom eingesetzten Hosting-Anbieter ab. Angaben zum Hosting-Dienstleister und zu Aufbewahrungsfristen sollten vor dem produktiven Einsatz noch ergaenzt werden.',
+          'Beim Besuch der Website erhebt der Hosting-Anbieter standardmäßig Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Datum/Uhrzeit, Referrer und User-Agent.',
+          'Diese Daten werden nur zur technischen Sicherstellung und Abwehr von Angriffen gespeichert.',
         ],
       },
       {
         heading: 'Kontaktaufnahme',
         paragraphs: [
-          'Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen uebermittelten Angaben zur Bearbeitung der Anfrage und fuer moegliche Anschlussfragen verarbeitet.',
-          'Die Verarbeitung erfolgt zur Kommunikation und Bearbeitung Ihres Anliegens.',
+          'Bei einer Kontaktaufnahme per E-Mail werden die angegebenen Informationen zur Beantwortung der Anfrage verarbeitet.',
+          'Grundlage ist unser berechtigtes Interesse an der Kommunikationsführung.',
         ],
       },
       {
-        heading: 'Analyse und Tracking',
+        heading: 'Analyse & Tracking',
         paragraphs: [
-          'Nach dem aktuellen Stand dieses Projekts werden keine eigenen Analyse-, Marketing- oder Tracking-Dienste eingebunden.',
+          'Aktuell werden keine Analyse-, Marketing- oder Trackingdienste eingebunden.',
+          'Sollten zukünftig solche Tools hinzukommen, wird diese Erklärung entsprechend erweitert.',
         ],
       },
       {
         heading: 'Ihre Rechte',
         paragraphs: [
-          'Sie haben im Rahmen der gesetzlichen Vorgaben insbesondere Rechte auf Auskunft, Berichtigung, Loeschung, Einschraenkung der Verarbeitung sowie Widerspruch gegen bestimmte Verarbeitungen.',
-          'Anfragen koennen an maximilian@joppien.dev gerichtet werden.',
+          'Sie können Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung oder Widerspruch gegen bestimmte Verarbeitungen verlangen.',
+          'Wenden Sie sich dazu bitte an maximilian@joppien.dev.',
         ],
       },
     ],
   },
   cookies: {
     title: 'Cookie-Hinweise',
-    intro: 'Uebersicht zum Einsatz von Cookies und vergleichbaren Technologien auf dieser Website.',
+    intro: 'Hinweise zum Einsatz von Cookies und ähnlichen Technologien.',
     sections: [
       {
-        heading: 'Aktueller Stand',
+        heading: 'Aktuelle Verwendung',
         paragraphs: [
-          'Nach dem aktuellen Stand dieses Repositories setzt die Website keine eigenen Cookies fuer Analyse, Marketing oder Personalisierung.',
-          'Auch fuer die dargestellte Dark-Mode-Umschaltung oder Navigation wird derzeit keine persistente Speicherung ueber Cookies verwendet.',
+          'Zum jetzigen Zeitpunkt werden keine eigenen Cookies zu Analyse-, Marketing- oder Personalisierungszwecken gesetzt.',
+          'Auch der Dark-Mode oder die Navigation arbeiten ohne persistente Cookies.',
         ],
       },
       {
-        heading: 'Technisch notwendige Prozesse',
+        heading: 'Technisch notwendige Mechanismen',
         paragraphs: [
-          'Abhaengig vom Hosting oder von spaeter eingebundenen Diensten koennen technisch notwendige Mechanismen eingesetzt werden, damit die Website ausgeliefert und sicher betrieben werden kann.',
-          'Sollten kuenftig Cookies, Consent-Tools oder externe Dienste hinzukommen, muss diese Seite entsprechend aktualisiert werden.',
+          'Abhängig vom Hosting oder zukünftigen Integrationen können technische Cookies notwendig sein, damit Inhalte ausgeliefert werden.',
+          'Entsprechende Mechanismen werden bei Bedarf ergänzt und dokumentiert.',
         ],
       },
       {
         heading: 'Kontakt',
         paragraphs: [
-          'Bei Fragen zu Cookies oder aehnlichen Technologien kontaktieren Sie bitte maximilian@joppien.dev.',
+          'Fragen zum Thema Cookies richten Sie bitte an maximilian@joppien.dev.',
         ],
       },
     ],
@@ -145,13 +168,18 @@ export default function LegalPage({
           {content.sections.map((section) => (
             <section key={section.heading} className="legal-page__section">
               <h2 style={{ color: theme.text }}>{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph} style={{ color: theme.muted }}>
-                  {paragraph}
-                </p>
-              ))}
-            </section>
-          ))}
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph} style={{ color: theme.muted }}>
+                    {paragraph.split('\n').map((line, index, array) => (
+                      <span key={`${paragraph}-${index}`}>
+                        {line}
+                        {index < array.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                ))}
+              </section>
+            ))}
         </div>
       </div>
     </section>

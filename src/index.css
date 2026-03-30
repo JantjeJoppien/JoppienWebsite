@@ -688,8 +688,13 @@ button:focus-visible {
 }
 
 ::selection {
-  background: rgba(215, 38, 61, 0.25);
-  color: #1f2230;
+  background: rgba(244, 244, 244, 0.9);
+  color: #02182B;
+}
+
+.home-landing--light ::selection {
+  background: rgba(18, 53, 71, 0.12);
+  color: #02182B;
 }
 
 @media (max-width: 960px) {
