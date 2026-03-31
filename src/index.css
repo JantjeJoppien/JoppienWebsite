@@ -575,6 +575,196 @@ button {
   align-self: center;
 }
 
+.jantje-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--jantje-border);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--jantje-accent-light) 72%, transparent), transparent),
+    var(--jantje-surface);
+  color: var(--jantje-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.jantje-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--jantje-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--jantje-accent) 12%, transparent);
+}
+
+.jantje-surface-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--jantje-border);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--jantje-accent) 10%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--jantje-surface) 96%, white 4%), var(--jantje-surface));
+  box-shadow: 0 18px 42px rgba(53, 34, 16, 0.08);
+}
+
+.jantje-surface-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 24px 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--jantje-accent) 24%, transparent), transparent);
+}
+
+.jantje-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.jantje-highlight {
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--jantje-border);
+  background: color-mix(in srgb, var(--jantje-accent-light) 42%, var(--jantje-surface));
+  color: var(--jantje-text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.jantje-grid-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.jantje-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.jantje-note-card {
+  padding: 28px;
+}
+
+.jantje-note-card blockquote {
+  margin: 0;
+  color: var(--jantje-text);
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.jantje-note-card p {
+  margin: 18px 0 0;
+  color: var(--jantje-muted);
+  line-height: 1.8;
+}
+
+.jantje-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.jantje-card {
+  padding: 26px;
+}
+
+.jantje-card h3,
+.jantje-card h4 {
+  margin: 0;
+  color: var(--jantje-text);
+}
+
+.jantje-card p {
+  margin: 12px 0 0;
+  color: var(--jantje-muted);
+  line-height: 1.8;
+}
+
+.jantje-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--jantje-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.jantje-timeline {
+  display: grid;
+  gap: 16px;
+}
+
+.jantje-timeline__item {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid color-mix(in srgb, var(--jantje-border) 82%, transparent);
+}
+
+.jantje-timeline__item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.jantje-timeline__label {
+  color: var(--jantje-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.jantje-contact-panel {
+  padding: 32px;
+}
+
+.jantje-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.jantje-contact-chip {
+  min-width: 200px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--jantje-border);
+  background: color-mix(in srgb, var(--jantje-accent-light) 38%, var(--jantje-surface));
+}
+
+.jantje-contact-chip span {
+  display: block;
+}
+
+.jantje-contact-chip span:first-child {
+  color: var(--jantje-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.jantje-contact-chip span:last-child {
+  margin-top: 8px;
+  color: var(--jantje-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .profile-card {
   position: relative;
   width: 100%;
@@ -742,6 +932,15 @@ button:focus-visible {
     gap: 40px !important;
   }
 
+  .jantje-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .jantje-timeline__item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .about-card {
     margin-top: 0 !important;
   }
@@ -885,10 +1084,20 @@ button:focus-visible {
     padding: 24px !important;
   }
 
+  .jantje-note-card,
+  .jantje-contact-panel,
+  .jantje-card {
+    padding: 24px !important;
+  }
+
   .about-card__row {
     align-items: flex-start !important;
     flex-direction: column;
     gap: 6px !important;
+  }
+
+  .jantje-note-card blockquote {
+    font-size: 19px;
   }
 
   .project-card {
@@ -899,6 +1108,10 @@ button:focus-visible {
   .contact-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .jantje-contact-actions {
+    flex-direction: column;
   }
 
   .contact-actions a {

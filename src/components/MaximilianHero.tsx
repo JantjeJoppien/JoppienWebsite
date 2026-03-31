@@ -104,7 +104,14 @@ export default function MaximilianHero({ theme, navigateToSection }: { theme: Th
       </div>
 
       <div className="hero-portrait reveal-up reveal-delay-1" data-reveal>
-        <ProfileCard theme={theme} imageSrc={maximilianImage} />
+        <ProfileCard
+          theme={theme}
+          imageSrc={maximilianImage}
+          imageAlt="Maximilian Joppien"
+          name="Maximilian Joppien"
+          role="Entwickler, Gamer"
+          chips={['Frontend', 'Gaming', 'Sports']}
+        />
       </div>
     </section>
   )

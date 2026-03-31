@@ -1,5 +1,3 @@
-import { type SectionKey, getPortfolioPath } from "../siteRouting.ts";
-
 interface Theme {
   dark: boolean
   bg: string
@@ -10,6 +8,11 @@ interface Theme {
   accent: string
   accentLight: string
 }
+
+import GlitchText from "./GlitchText.tsx";
+import jantjeImage from "../assets/JantjeMaxi.JPEG";
+import ProfileCard from "./ProfileCard.tsx";
+import { getPortfolioPath, type SectionKey } from "../siteRouting.ts";
 
 export default function JantjeHero({ theme, navigateToSection }: { theme: Theme, navigateToSection: (section: SectionKey) => void }) {
   function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>, section: SectionKey) {
@@ -38,24 +41,23 @@ export default function JantjeHero({ theme, navigateToSection }: { theme: Theme,
       margin: '0 auto',
       gap: 64,
     }}>
-      <div className="hero-copy" style={{ flex: '1 1 620px', minWidth: 0 }}>
+      <div className="hero-copy" style={{ flex: '1 1 560px', minWidth: 0 }}>
         <p style={{ color: theme.accent, fontSize: 15, marginBottom: 24, letterSpacing: '0.05em' }}>
           Hey, ich bin
         </p>
 
-        <h1 style={{ fontSize: 'clamp(56px, 9vw, 100px)', lineHeight: 1, margin: 0, letterSpacing: '-0.05em' }}>
-          Jantje
-        </h1>
+        <GlitchText text="Jantje" color={theme.text} dark={theme.dark} />
 
         <p style={{
           fontSize: 19,
           lineHeight: 1.85,
           color: theme.muted,
-          maxWidth: 560,
-          margin: '28px 0 48px',
+          maxWidth: 520,
+          marginBottom: 48,
         }}>
-          Diese Portfolio-Seite ist jetzt Teil der React-App und vorbereitet für den
-          nächsten Ausbauschritt. Struktur, Routing und Platzhalter-Sektionen stehen bereits.
+          Diese Seite nutzt aktuell bewusst Platzhalter. Hier koennen spaeter persoenliche
+          Inhalte, Schwerpunkte und Projekte eingebaut werden, waehrend das Layout bereits
+          den gleichen Aufbau wie bei Maximilian hat.
         </p>
 
         <div className="hero-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
@@ -67,7 +69,7 @@ export default function JantjeHero({ theme, navigateToSection }: { theme: Theme,
             fontSize: 15,
             borderRadius: 4,
           }}>
-            Seite aufbauen
+            Mehr erfahren
           </a>
           <a href={getPortfolioPath('jantje', 'contact')} onClick={(event) => handleSectionClick(event, 'contact')} className="button-link button-link--secondary" style={{
             padding: '13px 30px',
@@ -76,27 +78,40 @@ export default function JantjeHero({ theme, navigateToSection }: { theme: Theme,
             fontSize: 15,
             borderRadius: 4,
           }}>
-            Kontaktbereich
+            Kontakt aufnehmen
           </a>
+        </div>
+
+        <div className="hero-tags reveal-up reveal-delay-2" data-reveal style={{
+          marginTop: 80,
+          display: 'flex',
+          gap: 40,
+          paddingTop: 40,
+          borderTop: '1px solid ' + theme.border,
+        }}>
+          {[
+            { emoji: '🌿', label: 'Platzhalter' },
+            { emoji: '📷', label: 'Profil' },
+            { emoji: '🗂️', label: 'Projekte' },
+            { emoji: '✨', label: 'Persoenlich' },
+          ].map((tag) => (
+            <div key={tag.label} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 26, marginBottom: 6 }}>{tag.emoji}</div>
+              <div style={{ fontSize: 13, color: theme.muted, letterSpacing: '0.05em' }}>{tag.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="hero-portrait reveal-up reveal-delay-1" data-reveal>
-        <div style={{
-          padding: 30,
-          borderRadius: 28,
-          border: '1px solid ' + theme.border,
-          background: theme.surface,
-          boxShadow: theme.dark ? '0 24px 60px rgba(0, 0, 0, 0.22)' : '0 24px 60px rgba(18, 53, 71, 0.08)',
-        }}>
-          <p style={{ color: theme.accent, fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', margin: 0 }}>
-            React Portfolio
-          </p>
-          <h2 style={{ margin: '14px 0 0', fontSize: 34 }}>Jantje</h2>
-          <p style={{ color: theme.muted, fontSize: 16, lineHeight: 1.8, marginTop: 16 }}>
-            Platzhalter-Inhalte heute, echte Portfolio-Seite als nächster Schritt.
-          </p>
-        </div>
+        <ProfileCard
+          theme={theme}
+          imageSrc={jantjeImage}
+          imageAlt="Jantje Joppien Platzhalterbild"
+          name="Jantje Joppien"
+          role="Portfolio Platzhalter"
+          chips={['About', 'Interests', 'Projects']}
+        />
       </div>
     </section>
   )

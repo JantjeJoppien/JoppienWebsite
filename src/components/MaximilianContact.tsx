@@ -34,7 +34,7 @@ export default function MaximilianContact({ theme }: { theme: Theme }) {
         Ich freue mich über jede Nachricht und antworte zeitnah.
       </p>
 
-      <div className="contact-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 80 }}>
+      <div className="contact-actions reveal-up reveal-delay-1" data-reveal style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 32 }}>
         <a href="mailto:maximilian@joppien.dev" className="button-link button-link--primary" style={{
           padding: '14px 32px',
           backgroundColor: theme.accent,
@@ -63,18 +63,6 @@ export default function MaximilianContact({ theme }: { theme: Theme }) {
         }}>
           LinkedIn
         </a>
-      </div>
-
-      <div className="contact-footer" style={{
-        paddingTop: 32,
-        borderTop: '1px solid ' + theme.border,
-        display: 'flex',
-        justifyContent: 'space-between',
-        fontSize: 13,
-        color: theme.muted,
-      }}>
-        <span>2026 Joppien</span>
-        <span style={{ color: theme.accent }}>Offen für neue Möglichkeiten ✨</span>
       </div>
     </section>
   )

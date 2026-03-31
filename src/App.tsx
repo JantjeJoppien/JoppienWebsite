@@ -20,6 +20,7 @@ export default function App() {
   const [dark, setDark] = useState(true)
   const [route, setRoute] = useState<AppRoute>(() => getRouteFromPath(window.location.pathname))
   const isFirstRouteSync = useRef(true)
+  const isJantjePortfolio = route.kind === 'portfolio' && route.portfolio === 'jantje'
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -57,6 +58,15 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    if (route.kind === 'portfolio') {
+      document.title = route.portfolio === 'jantje' ? 'Jantje Joppien' : 'Maximilian Joppien'
+      return
+    }
+
+    document.title = 'Joppien'
+  }, [route])
+
+  useEffect(() => {
     const behavior = isFirstRouteSync.current ? 'auto' : 'smooth'
     isFirstRouteSync.current = false
 
@@ -92,16 +102,35 @@ export default function App() {
     }
   }
 
-  const theme = {
-    dark,
-    bg: dark ? '#02182B' : '#EAEBED',
-    surface: dark ? '#0b253d' : '#F6F8F9',
-    border: dark ? '#173756' : '#B7C9D1',
-    text: dark ? '#f7f8fb' : '#123547',
-    muted: dark ? '#9fb3c8' : '#4F6C79',
-    accent: dark ? '#D7263D' : '#006989',
-    accentLight: dark ? 'rgba(215, 38, 61, 0.20)' : 'rgba(0, 105, 137, 0.14)',
-  }
+  const theme = isJantjePortfolio
+    ? {
+        dark,
+        bg: dark ? '#38392f' : '#fefae0',
+        surface: dark ? '#45463a' : '#faedcd',
+        border: dark ? '#9ea285' : '#d4a373',
+        text: dark ? '#f5f0dc' : '#5f4a36',
+        muted: dark ? '#d8d6be' : '#8c6f52',
+        accent: dark ? '#c4a07a' : '#b9824d',
+        accentLight: dark ? 'rgba(196, 160, 122, 0.12)' : 'rgba(212, 163, 115, 0.18)',
+      }
+    : {
+        dark,
+        bg: dark ? '#02182B' : '#EAEBED',
+        surface: dark ? '#0b253d' : '#F6F8F9',
+        border: dark ? '#173756' : '#B7C9D1',
+        text: dark ? '#f7f8fb' : '#123547',
+        muted: dark ? '#9fb3c8' : '#4F6C79',
+        accent: dark ? '#D7263D' : '#006989',
+        accentLight: dark ? 'rgba(215, 38, 61, 0.20)' : 'rgba(0, 105, 137, 0.14)',
+      }
+
+  const backgroundImage = isJantjePortfolio
+    ? dark
+      ? 'radial-gradient(circle at 14% 16%, rgba(196, 160, 122, 0.12), transparent 26%), radial-gradient(circle at 84% 14%, rgba(204, 213, 174, 0.08), transparent 30%), radial-gradient(circle at 76% 78%, rgba(233, 237, 201, 0.06), transparent 32%), linear-gradient(180deg, #434538 0%, #38392f 100%)'
+      : 'radial-gradient(circle at 14% 16%, rgba(212, 163, 115, 0.22), transparent 24%), radial-gradient(circle at 86% 12%, rgba(254, 250, 224, 0.72), transparent 22%), radial-gradient(circle at 78% 74%, rgba(204, 213, 174, 0.18), transparent 28%), linear-gradient(180deg, #fffdf2 0%, #faedcd 100%)'
+    : dark
+      ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
+      : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)'
 
   const activePortfolio = route.kind === 'portfolio' ? route.portfolio : 'maximilian'
   const navigateToSection = createSectionNavigator(activePortfolio)
@@ -147,9 +176,7 @@ export default function App() {
     <div
       style={{
         backgroundColor: theme.bg,
-        backgroundImage: dark
-          ? 'radial-gradient(circle at 14% 18%, rgba(215, 38, 61, 0.28), transparent 24%), radial-gradient(circle at 84% 14%, rgba(76, 118, 168, 0.22), transparent 26%), radial-gradient(circle at 74% 76%, rgba(215, 38, 61, 0.16), transparent 24%), linear-gradient(180deg, #072038 0%, #02182B 100%)'
-          : 'radial-gradient(circle at 12% 16%, rgba(0, 105, 137, 0.16), transparent 24%), radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.72), transparent 20%), radial-gradient(circle at 76% 74%, rgba(0, 105, 137, 0.10), transparent 26%), linear-gradient(180deg, #f6f8fa 0%, #eaebed 100%)',
+        backgroundImage,
         color: theme.text,
         minHeight: '100vh',
         transition: 'background 0.3s, color 0.3s',

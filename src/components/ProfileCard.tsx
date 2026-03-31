@@ -14,9 +14,13 @@ interface Theme {
 interface ProfileCardProps {
   theme: Theme
   imageSrc: string
+  imageAlt: string
+  name: string
+  role: string
+  chips: string[]
 }
 
-export default function ProfileCard({ theme, imageSrc }: ProfileCardProps) {
+export default function ProfileCard({ theme, imageSrc, imageAlt, name, role, chips }: ProfileCardProps) {
   const [transform, setTransform] = useState('perspective(1400px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)')
 
   function handleMove(event: React.MouseEvent<HTMLDivElement>) {
@@ -52,17 +56,17 @@ export default function ProfileCard({ theme, imageSrc }: ProfileCardProps) {
     >
       <div className="profile-card__frame">
         <div className="profile-card__image-wrap">
-          <img className="profile-card__image" src={imageSrc} alt="Maximilian Joppien" />
+          <img className="profile-card__image" src={imageSrc} alt={imageAlt} />
         </div>
 
         <div className="profile-card__body">
-          <h2 className="profile-card__name">Maximilian Joppien</h2>
-          <p className="profile-card__role">Entwickler, Gamer</p>
+          <h2 className="profile-card__name">{name}</h2>
+          <p className="profile-card__role">{role}</p>
 
           <div className="profile-card__chips">
-            <span>Frontend</span>
-            <span>Gaming</span>
-            <span>Sports</span>
+            {chips.map((chip) => (
+              <span key={chip}>{chip}</span>
+            ))}
           </div>
         </div>
       </div>
