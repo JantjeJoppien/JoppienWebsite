@@ -55,16 +55,14 @@ main {
   width: 100%;
   padding: 0 48px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  position: relative;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
 }
 
 .site-footer__nav-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   width: min(520px, 100%);
   display: flex;
   justify-content: center;
@@ -851,8 +849,7 @@ button:focus-visible {
   }
 
   .site-footer__inner {
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 0;
   }
 
   .legal-page__card {
